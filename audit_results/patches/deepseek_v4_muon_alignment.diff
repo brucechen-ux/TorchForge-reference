@@ -1,0 +1,221 @@
+--- /gfs/space/private/wly/deepseek-v3-v4-attn-v4moe-tiny-code-0608/src/muon.py	2026-07-11 00:53:25.663460000 +0800
++++ src/muon.py	2026-07-13 01:47:43.503142000 +0800
+@@ -8,6 +8,7 @@
+ 
+ 
+ V4_QUINTIC_COEFFICIENTS = (3.4445, -4.7750, 2.0315)
++STABILIZING_QUINTIC_COEFFICIENTS = (2.0, -1.5, 0.5)
+ 
+ 
+ def _orthogonality_error(x: torch.Tensor) -> torch.Tensor:
+@@ -26,38 +27,45 @@
+     matrix: torch.Tensor,
+     *,
+     method: str,
+-    iterations: int,
++    iterations: int | None = None,
++    first_stage_steps: int = 8,
++    second_stage_steps: int = 2,
++    first_stage_coefficients: tuple[float, float, float] = V4_QUINTIC_COEFFICIENTS,
++    second_stage_coefficients: tuple[float, float, float] = STABILIZING_QUINTIC_COEFFICIENTS,
++    standard_steps: int = 10,
++    standard_coefficients: tuple[float, float, float] = STABILIZING_QUINTIC_COEFFICIENTS,
+     eps: float = 1.0e-7,
+     trace: bool = False,
+ ) -> tuple[torch.Tensor, list[float]]:
+-    """Orthogonalize a 2-D matrix with standard cubic or V4-style hybrid NS.
+-
+-    The V4-style path uses three high-slope quintic Muon iterations to enter the
+-    convergence basin quickly, followed by standard cubic refinement. For
+-    rectangular matrices we transpose internally so that the smaller Gram
+-    matrix is formed, then restore the original layout.
+-    """
++    """Orthogonalize a 2-D matrix with report-aligned quintic Newton-Schulz steps."""
+     if matrix.ndim != 2:
+         raise ValueError(f"Newton-Schulz expects a 2-D tensor, got shape={tuple(matrix.shape)}")
+-    if method not in {"v4", "standard"}:
++    if method not in {"v4", "hybrid", "standard"}:
+         raise ValueError(f"Unknown Newton-Schulz method: {method}")
++    if not torch.isfinite(matrix).all():
++        raise FloatingPointError("Newton-Schulz input contains NaN or Inf")
+ 
++    work = matrix.float()
++    max_abs = work.abs().max()
++    frobenius_norm = (work / max_abs).norm() * max_abs if max_abs > 0 else max_abs
+     x = matrix.to(dtype=torch.bfloat16 if matrix.is_cuda else torch.float32)
+     transposed = x.shape[0] > x.shape[1]
+     if transposed:
+         x = x.mT
+-    x = x / x.float().norm().clamp_min(eps).to(dtype=x.dtype)
++    x = x / frobenius_norm.clamp_min(eps).to(dtype=x.dtype)
+ 
+     errors: list[float] = []
+     if trace:
+         errors.append(float(_orthogonality_error(x).item()))
+-    for iteration in range(iterations):
++    if method in {"v4", "hybrid"}:
++        coefficients = [first_stage_coefficients] * first_stage_steps + [second_stage_coefficients] * second_stage_steps
++    else:
++        coefficients = [standard_coefficients] * standard_steps
++    if iterations is not None:
++        coefficients = coefficients[: int(iterations)]
++    for a, b, c in coefficients:
+         gram = x @ x.mT
+-        if method == "standard" or iteration >= min(3, iterations):
+-            x = 1.5 * x - 0.5 * (gram @ x)
+-        else:
+-            a, b, c = V4_QUINTIC_COEFFICIENTS
+-            x = a * x + (b * gram + c * (gram @ gram)) @ x
++        x = a * x + (b * gram + c * (gram @ gram)) @ x
+         if trace:
+             errors.append(float(_orthogonality_error(x).item()))
+     if transposed:
+@@ -142,6 +150,13 @@
+         nesterov: bool = True,
+         ns_method: str = "v4",
+         ns_iterations: int = 5,
++        ns_first_stage_steps: int = 8,
++        ns_second_stage_steps: int = 2,
++        ns_first_stage_coefficients: tuple[float, float, float] = V4_QUINTIC_COEFFICIENTS,
++        ns_second_stage_coefficients: tuple[float, float, float] = STABILIZING_QUINTIC_COEFFICIENTS,
++        ns_standard_steps: int = 10,
++        ns_standard_coefficients: tuple[float, float, float] = STABILIZING_QUINTIC_COEFFICIENTS,
++        update_rms_target: float = 0.18,
+         adamw_betas: tuple[float, float] = (0.9, 0.95),
+         adamw_eps: float = 1.0e-8,
+         metrics_interval: int = 100,
+@@ -156,6 +171,13 @@
+             nesterov=nesterov,
+             ns_method=ns_method,
+             ns_iterations=ns_iterations,
++            ns_first_stage_steps=ns_first_stage_steps,
++            ns_second_stage_steps=ns_second_stage_steps,
++            ns_first_stage_coefficients=ns_first_stage_coefficients,
++            ns_second_stage_coefficients=ns_second_stage_coefficients,
++            ns_standard_steps=ns_standard_steps,
++            ns_standard_coefficients=ns_standard_coefficients,
++            update_rms_target=update_rms_target,
+             betas=adamw_betas,
+             eps=adamw_eps,
+         )
+@@ -210,7 +232,7 @@
+                 grad = param.grad.detach()
+                 if sample:
+                     grad_sq += grad.float().pow(2).sum()
+-                use_muon = bool(group.get("use_muon", False)) and param.ndim == 2
++                use_muon = bool(group.get("use_muon", False)) and param.ndim in {2, 3}
+                 if use_muon:
+                     muon_matrix_count += 1
+                     state = self.state[param]
+@@ -218,20 +240,36 @@
+                     if momentum_buffer is None:
+                         momentum_buffer = state["momentum_buffer"] = torch.zeros_like(param)
+                     momentum = float(group["momentum"])
+-                    momentum_buffer.lerp_(grad, 1.0 - momentum)
+-                    update_input = grad.lerp(momentum_buffer, momentum) if group["nesterov"] else momentum_buffer
++                    momentum_buffer.mul_(momentum).add_(grad)
++                    update_input = grad.add(momentum_buffer, alpha=momentum) if group["nesterov"] else momentum_buffer
+                     trace_this = diagnose and len(diagnostics) < self.diagnostics_max_matrices
+                     ns_started = time.perf_counter() if sample and device.type != "cuda" else None
+                     event_pair = None
+                     if sample and device.type == "cuda":
+                         event_pair = (torch.cuda.Event(enable_timing=True), torch.cuda.Event(enable_timing=True))
+                         event_pair[0].record()
+-                    update, errors = newton_schulz(
+-                        update_input,
+-                        method=str(group["ns_method"]),
+-                        iterations=int(group["ns_iterations"]),
+-                        trace=trace_this,
+-                    )
++                    logical_matrices = update_input.unbind(0) if update_input.ndim == 3 else (update_input,)
++                    logical_updates = []
++                    errors = []
++                    for logical_matrix in logical_matrices:
++                        logical_update, logical_errors = newton_schulz(
++                            logical_matrix,
++                            method=str(group["ns_method"]),
++                            iterations=None,
++                            first_stage_steps=int(group["ns_first_stage_steps"]),
++                            second_stage_steps=int(group["ns_second_stage_steps"]),
++                            first_stage_coefficients=tuple(group["ns_first_stage_coefficients"]),
++                            second_stage_coefficients=tuple(group["ns_second_stage_coefficients"]),
++                            standard_steps=int(group["ns_standard_steps"]),
++                            standard_coefficients=tuple(group["ns_standard_coefficients"]),
++                            trace=trace_this and not errors,
++                        )
++                        rows, columns = logical_matrix.shape
++                        logical_update.mul_(math.sqrt(max(rows, columns)) * float(group["update_rms_target"]))
++                        logical_updates.append(logical_update)
++                        if logical_errors:
++                            errors = logical_errors
++                    update = torch.stack(logical_updates) if update_input.ndim == 3 else logical_updates[0]
+                     if event_pair is not None:
+                         event_pair[1].record()
+                         ns_events.append(event_pair)
+@@ -258,7 +296,6 @@
+                                 "iterations_to_1e-5": next((i for i, value in enumerate(errors) if value < 1.0e-5), None),
+                             }
+                         )
+-                    update = update * math.sqrt(max(1.0, param.shape[0] / max(param.shape[1], 1)))
+                 else:
+                     update = self._adamw_update(param, grad, group)
+ 
+--- /gfs/space/private/wly/deepseek-v3-v4-attn-v4moe-tiny-code-0608/src/train.py	2026-07-11 00:35:59.008499000 +0800
++++ src/train.py	2026-07-13 01:42:38.886406000 +0800
+@@ -496,14 +496,22 @@
+     elif optimizer_name == "muon":
+         muon_params: list[torch.nn.Parameter] = []
+         adamw_params: list[torch.nn.Parameter] = []
+-        excluded_fragments = tuple(
+-            optimizer_cfg.get(
+-                "exclude_from_muon",
+-                ["embed", "lm_head", "norm", "router", "gate", "balance_bias"],
+-            )
+-        )
++        excluded_fragments = tuple(optimizer_cfg.get("exclude_from_muon", []))
+         for name, param in named_parameters:
+-            eligible = param.ndim == 2 and not any(fragment in name.lower() for fragment in excluded_fragments)
++            lowered = name.lower()
++            report_adamw = (
++                "embed_tokens" in lowered
++                or "lm_head" in lowered
++                or "norm" in lowered
++                or ".router." in lowered
++                or ".ffn.gate." in lowered
++                or "balance_bias" in lowered
++                or "static_bias" in lowered
++                or "gating_factor" in lowered
++            )
++            eligible = param.ndim in {2, 3} and not report_adamw and not any(
++                fragment in lowered for fragment in excluded_fragments
++            )
+             (muon_params if eligible else adamw_params).append(param)
+         model_parameters = [
+             {"params": muon_params, "name": "muon-matrices", "use_muon": True},
+@@ -529,14 +537,24 @@
+             weight_decay=train_cfg["weight_decay"],
+             metrics_interval=metrics_interval,
+         )
++    ns_method = str(optimizer_cfg.get("newton_schulz", optimizer_cfg.get("ns_method", "hybrid")))
++    hybrid_cfg = optimizer_cfg.get("hybrid", {})
++    standard_cfg = optimizer_cfg.get("standard", {})
+     optimizer = MuonWithAuxAdamW(
+         model_parameters,
+         lr=train_cfg["learning_rate"],
+         weight_decay=train_cfg["weight_decay"],
+         momentum=float(optimizer_cfg.get("momentum", 0.95)),
+         nesterov=bool(optimizer_cfg.get("nesterov", True)),
+-        ns_method=str(optimizer_cfg.get("newton_schulz", "v4")),
+-        ns_iterations=int(optimizer_cfg.get("newton_schulz_iterations", 5)),
++        ns_method=ns_method,
++        ns_iterations=int(optimizer_cfg.get("newton_schulz_iterations", 10)),
++        ns_first_stage_steps=int(hybrid_cfg.get("first_stage_steps", 8)),
++        ns_second_stage_steps=int(hybrid_cfg.get("second_stage_steps", 2)),
++        ns_first_stage_coefficients=tuple(hybrid_cfg.get("first_stage_coefficients", (3.4445, -4.7750, 2.0315))),
++        ns_second_stage_coefficients=tuple(hybrid_cfg.get("second_stage_coefficients", (2.0, -1.5, 0.5))),
++        ns_standard_steps=int(standard_cfg.get("steps", 10)),
++        ns_standard_coefficients=tuple(standard_cfg.get("coefficients", (2.0, -1.5, 0.5))),
++        update_rms_target=float(optimizer_cfg.get("update_rms_target", 0.18)),
+         adamw_betas=tuple(optimizer_cfg.get("betas", (0.9, 0.95))),
+         adamw_eps=float(optimizer_cfg.get("eps", 1.0e-8)),
+         metrics_interval=metrics_interval,

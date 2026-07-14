@@ -1,0 +1,1 @@
+PYTHONPATH=. python -m src.train --config configs_smoke/muon_v4_cpu.yaml --override_max_steps 2 --skip_final_checkpoint --log_dir audit_results/tests/smoke_logs

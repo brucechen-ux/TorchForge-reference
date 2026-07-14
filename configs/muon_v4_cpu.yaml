@@ -1,0 +1,88 @@
+model:
+  name: optimizer_ablation_cpu_smoke
+  vocab_size: 512
+  seq_len: 32
+  num_layers: 1
+  hidden_size: 64
+  num_attention_heads: 2
+  dense_intermediate_size: 128
+  first_dense_layers: 0
+  rms_norm_eps: 1.0e-6
+  tie_word_embeddings: false
+v4_attention:
+  enabled: true
+  _attn_implementation: sdpa
+  q_lora_rank: 32
+  head_dim: 32
+  qk_rope_head_dim: 16
+  partial_rotary_factor: 0.5
+  rope_theta: 10000
+  compress_rope_theta: 160000
+  sliding_window: 16
+  o_groups: 1
+  o_lora_rank: 16
+  index_n_heads: 2
+  index_head_dim: 16
+  index_topk: 8
+  compress_rates:
+    compressed_sparse_attention: 4
+    heavily_compressed_attention: 16
+moe:
+  enabled: true
+  num_routed_experts: 4
+  num_shared_experts: 1
+  num_experts_per_token: 1
+  num_hash_layers: 1
+  num_expert_groups: 2
+  num_limited_groups: 1
+  route_scale: 1.5
+  score_function: sqrtsoftplus
+  swiglu_limit: 10.0
+  aux_loss_weight: 0.0
+  expert_intermediate_size: 32
+  normalize_topk_prob: true
+  use_correction_bias: true
+  use_packed_experts: true
+  implementation: torch
+  moe_ep_size: 1
+  moe_capacity_factor: 1.25
+  moe_eval_capacity_factor: 2.0
+  moe_min_capacity: 1
+  moe_drop_tokens: false
+  moe_use_tutel: false
+mtp:
+  enabled: false
+train:
+  max_steps: 2
+  seq_len: 32
+  micro_batch_size: 1
+  gradient_accumulation_steps: 1
+  learning_rate: 3.0e-4
+  min_lr: 1.5e-5
+  weight_decay: 0.1
+  warmup_steps: 1
+  log_steps: 1
+  perf_log_interval: 1
+  save_steps: 100
+  valid_steps: 100
+  bf16: false
+  output_dir: experiments/optimizer_ablation/smoke_output
+  tensorboard_dir: experiments/optimizer_ablation/smoke_runs
+  optimizer:
+    name: muon
+    momentum: 0.95
+    nesterov: true
+    newton_schulz: v4
+    newton_schulz_iterations: 8
+    metrics_interval: 1
+    diagnostics_interval: 1
+    diagnostics_max_matrices: 2
+    diagnostics_max_singular_values: 16
+    exclude_from_muon: [embed, lm_head, norm, router, gate, balance_bias]
+data:
+  type: synthetic
+  train_tokens: 2048
+  valid_tokens: 512
+  vocab_size: 512
+  num_workers: 0
+  pin_memory: false

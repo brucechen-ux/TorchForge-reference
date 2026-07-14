@@ -1,0 +1,4 @@
+# Do not run until the 8-GPU smoke passes.
+torchrun --standalone --nproc_per_node 8 -m src.train --config configs/rerun_adamw.yaml --log_dir logs/rerun_adamw
+torchrun --standalone --nproc_per_node 8 -m src.train --config configs/rerun_v4_muon_hybrid.yaml --log_dir logs/rerun_v4_muon_hybrid
+torchrun --standalone --nproc_per_node 8 -m src.train --config configs/rerun_muon_standard_ns.yaml --log_dir logs/rerun_muon_standard_ns

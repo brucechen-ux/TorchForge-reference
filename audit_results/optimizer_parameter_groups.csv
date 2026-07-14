@@ -1,0 +1,385 @@
+parameter_name,module_name,shape,ndim,numel,requires_grad,assigned_optimizer,optimizer_group_id,learning_rate,weight_decay,momentum,beta1,beta2,epsilon,nesterov,use_newton_schulz,ns_method,ns_iterations,update_rms_target,reason_for_assignment,expected_optimizer_from_report,compliance_status
+embed_tokens.weight,embed_tokens,49152x704,2,34603008,True,AdamW,1,0.0003,0.1,0.95,0.9,0.95,1e-20,True,False,hybrid,10,0.18,report semantic exclusion,AdamW,PASS
+layers.0.attn_norm.weight,layers.0.attn_norm,704,1,704,True,AdamW,1,0.0003,0.1,0.95,0.9,0.95,1e-20,True,False,hybrid,10,0.18,report semantic exclusion,AdamW,PASS
+layers.0.attn.sinks,layers.0.attn,11,1,11,True,AdamW,1,0.0003,0.1,0.95,0.9,0.95,1e-20,True,False,hybrid,10,0.18,report semantic exclusion,AdamW,PASS
+layers.0.attn.q_a_proj.weight,layers.0.attn.q_a_proj,352x704,2,247808,True,Muon,0,0.0003,0.1,0.95,0.9,0.95,1e-20,True,True,hybrid,10,0.18,logical matrix or packed logical matrices,Muon,PASS
+layers.0.attn.q_a_norm.weight,layers.0.attn.q_a_norm,352,1,352,True,AdamW,1,0.0003,0.1,0.95,0.9,0.95,1e-20,True,False,hybrid,10,0.18,report semantic exclusion,AdamW,PASS
+layers.0.attn.q_b_proj.weight,layers.0.attn.q_b_proj,704x352,2,247808,True,Muon,0,0.0003,0.1,0.95,0.9,0.95,1e-20,True,True,hybrid,10,0.18,logical matrix or packed logical matrices,Muon,PASS
+layers.0.attn.kv_proj.weight,layers.0.attn.kv_proj,64x704,2,45056,True,Muon,0,0.0003,0.1,0.95,0.9,0.95,1e-20,True,True,hybrid,10,0.18,logical matrix or packed logical matrices,Muon,PASS
+layers.0.attn.kv_norm.weight,layers.0.attn.kv_norm,64,1,64,True,AdamW,1,0.0003,0.1,0.95,0.9,0.95,1e-20,True,False,hybrid,10,0.18,report semantic exclusion,AdamW,PASS
+layers.0.attn.o_a_proj.weight,layers.0.attn.o_a_proj,64x704,2,45056,True,Muon,0,0.0003,0.1,0.95,0.9,0.95,1e-20,True,True,hybrid,10,0.18,logical matrix or packed logical matrices,Muon,PASS
+layers.0.attn.o_b_proj.weight,layers.0.attn.o_b_proj,704x64,2,45056,True,Muon,0,0.0003,0.1,0.95,0.9,0.95,1e-20,True,True,hybrid,10,0.18,logical matrix or packed logical matrices,Muon,PASS
+layers.0.attn.compressor.position_bias,layers.0.attn.compressor,128x64,2,8192,True,Muon,0,0.0003,0.1,0.95,0.9,0.95,1e-20,True,True,hybrid,10,0.18,logical matrix or packed logical matrices,Muon,PASS
+layers.0.attn.compressor.kv_proj.weight,layers.0.attn.compressor.kv_proj,64x704,2,45056,True,Muon,0,0.0003,0.1,0.95,0.9,0.95,1e-20,True,True,hybrid,10,0.18,logical matrix or packed logical matrices,Muon,PASS
+layers.0.attn.compressor.gate_proj.weight,layers.0.attn.compressor.gate_proj,64x704,2,45056,True,Muon,0,0.0003,0.1,0.95,0.9,0.95,1e-20,True,True,hybrid,10,0.18,logical matrix or packed logical matrices,Muon,PASS
+layers.0.attn.compressor.kv_norm.weight,layers.0.attn.compressor.kv_norm,64,1,64,True,AdamW,1,0.0003,0.1,0.95,0.9,0.95,1e-20,True,False,hybrid,10,0.18,report semantic exclusion,AdamW,PASS
+layers.0.ffn_norm.weight,layers.0.ffn_norm,704,1,704,True,AdamW,1,0.0003,0.1,0.95,0.9,0.95,1e-20,True,False,hybrid,10,0.18,report semantic exclusion,AdamW,PASS
+layers.0.ffn.gate.weight,layers.0.ffn.gate,16x704,2,11264,True,AdamW,1,0.0003,0.1,0.95,0.9,0.95,1e-20,True,False,hybrid,10,0.18,report semantic exclusion,AdamW,PASS
+layers.0.ffn.experts.gate_up_proj,layers.0.ffn.experts,16x1024x704,3,11534336,True,Muon,0,0.0003,0.1,0.95,0.9,0.95,1e-20,True,True,hybrid,10,0.18,logical matrix or packed logical matrices,Muon,PASS
+layers.0.ffn.experts.down_proj,layers.0.ffn.experts,16x704x512,3,5767168,True,Muon,0,0.0003,0.1,0.95,0.9,0.95,1e-20,True,True,hybrid,10,0.18,logical matrix or packed logical matrices,Muon,PASS
+layers.0.ffn.shared_experts.gate_proj.weight,layers.0.ffn.shared_experts.gate_proj,512x704,2,360448,True,Muon,0,0.0003,0.1,0.95,0.9,0.95,1e-20,True,True,hybrid,10,0.18,logical matrix or packed logical matrices,Muon,PASS
+layers.0.ffn.shared_experts.up_proj.weight,layers.0.ffn.shared_experts.up_proj,512x704,2,360448,True,Muon,0,0.0003,0.1,0.95,0.9,0.95,1e-20,True,True,hybrid,10,0.18,logical matrix or packed logical matrices,Muon,PASS
+layers.0.ffn.shared_experts.down_proj.weight,layers.0.ffn.shared_experts.down_proj,704x512,2,360448,True,Muon,0,0.0003,0.1,0.95,0.9,0.95,1e-20,True,True,hybrid,10,0.18,logical matrix or packed logical matrices,Muon,PASS
+layers.1.attn_norm.weight,layers.1.attn_norm,704,1,704,True,AdamW,1,0.0003,0.1,0.95,0.9,0.95,1e-20,True,False,hybrid,10,0.18,report semantic exclusion,AdamW,PASS
+layers.1.attn.sinks,layers.1.attn,11,1,11,True,AdamW,1,0.0003,0.1,0.95,0.9,0.95,1e-20,True,False,hybrid,10,0.18,report semantic exclusion,AdamW,PASS
+layers.1.attn.q_a_proj.weight,layers.1.attn.q_a_proj,352x704,2,247808,True,Muon,0,0.0003,0.1,0.95,0.9,0.95,1e-20,True,True,hybrid,10,0.18,logical matrix or packed logical matrices,Muon,PASS
+layers.1.attn.q_a_norm.weight,layers.1.attn.q_a_norm,352,1,352,True,AdamW,1,0.0003,0.1,0.95,0.9,0.95,1e-20,True,False,hybrid,10,0.18,report semantic exclusion,AdamW,PASS
+layers.1.attn.q_b_proj.weight,layers.1.attn.q_b_proj,704x352,2,247808,True,Muon,0,0.0003,0.1,0.95,0.9,0.95,1e-20,True,True,hybrid,10,0.18,logical matrix or packed logical matrices,Muon,PASS
+layers.1.attn.kv_proj.weight,layers.1.attn.kv_proj,64x704,2,45056,True,Muon,0,0.0003,0.1,0.95,0.9,0.95,1e-20,True,True,hybrid,10,0.18,logical matrix or packed logical matrices,Muon,PASS
+layers.1.attn.kv_norm.weight,layers.1.attn.kv_norm,64,1,64,True,AdamW,1,0.0003,0.1,0.95,0.9,0.95,1e-20,True,False,hybrid,10,0.18,report semantic exclusion,AdamW,PASS
+layers.1.attn.o_a_proj.weight,layers.1.attn.o_a_proj,64x704,2,45056,True,Muon,0,0.0003,0.1,0.95,0.9,0.95,1e-20,True,True,hybrid,10,0.18,logical matrix or packed logical matrices,Muon,PASS
+layers.1.attn.o_b_proj.weight,layers.1.attn.o_b_proj,704x64,2,45056,True,Muon,0,0.0003,0.1,0.95,0.9,0.95,1e-20,True,True,hybrid,10,0.18,logical matrix or packed logical matrices,Muon,PASS
+layers.1.attn.compressor.position_bias,layers.1.attn.compressor,128x64,2,8192,True,Muon,0,0.0003,0.1,0.95,0.9,0.95,1e-20,True,True,hybrid,10,0.18,logical matrix or packed logical matrices,Muon,PASS
+layers.1.attn.compressor.kv_proj.weight,layers.1.attn.compressor.kv_proj,64x704,2,45056,True,Muon,0,0.0003,0.1,0.95,0.9,0.95,1e-20,True,True,hybrid,10,0.18,logical matrix or packed logical matrices,Muon,PASS
+layers.1.attn.compressor.gate_proj.weight,layers.1.attn.compressor.gate_proj,64x704,2,45056,True,Muon,0,0.0003,0.1,0.95,0.9,0.95,1e-20,True,True,hybrid,10,0.18,logical matrix or packed logical matrices,Muon,PASS
+layers.1.attn.compressor.kv_norm.weight,layers.1.attn.compressor.kv_norm,64,1,64,True,AdamW,1,0.0003,0.1,0.95,0.9,0.95,1e-20,True,False,hybrid,10,0.18,report semantic exclusion,AdamW,PASS
+layers.1.ffn_norm.weight,layers.1.ffn_norm,704,1,704,True,AdamW,1,0.0003,0.1,0.95,0.9,0.95,1e-20,True,False,hybrid,10,0.18,report semantic exclusion,AdamW,PASS
+layers.1.ffn.gate.weight,layers.1.ffn.gate,16x704,2,11264,True,AdamW,1,0.0003,0.1,0.95,0.9,0.95,1e-20,True,False,hybrid,10,0.18,report semantic exclusion,AdamW,PASS
+layers.1.ffn.experts.gate_up_proj,layers.1.ffn.experts,16x1024x704,3,11534336,True,Muon,0,0.0003,0.1,0.95,0.9,0.95,1e-20,True,True,hybrid,10,0.18,logical matrix or packed logical matrices,Muon,PASS
+layers.1.ffn.experts.down_proj,layers.1.ffn.experts,16x704x512,3,5767168,True,Muon,0,0.0003,0.1,0.95,0.9,0.95,1e-20,True,True,hybrid,10,0.18,logical matrix or packed logical matrices,Muon,PASS
+layers.1.ffn.shared_experts.gate_proj.weight,layers.1.ffn.shared_experts.gate_proj,512x704,2,360448,True,Muon,0,0.0003,0.1,0.95,0.9,0.95,1e-20,True,True,hybrid,10,0.18,logical matrix or packed logical matrices,Muon,PASS
+layers.1.ffn.shared_experts.up_proj.weight,layers.1.ffn.shared_experts.up_proj,512x704,2,360448,True,Muon,0,0.0003,0.1,0.95,0.9,0.95,1e-20,True,True,hybrid,10,0.18,logical matrix or packed logical matrices,Muon,PASS
+layers.1.ffn.shared_experts.down_proj.weight,layers.1.ffn.shared_experts.down_proj,704x512,2,360448,True,Muon,0,0.0003,0.1,0.95,0.9,0.95,1e-20,True,True,hybrid,10,0.18,logical matrix or packed logical matrices,Muon,PASS
+layers.2.attn_norm.weight,layers.2.attn_norm,704,1,704,True,AdamW,1,0.0003,0.1,0.95,0.9,0.95,1e-20,True,False,hybrid,10,0.18,report semantic exclusion,AdamW,PASS
+layers.2.attn.sinks,layers.2.attn,11,1,11,True,AdamW,1,0.0003,0.1,0.95,0.9,0.95,1e-20,True,False,hybrid,10,0.18,report semantic exclusion,AdamW,PASS
+layers.2.attn.q_a_proj.weight,layers.2.attn.q_a_proj,352x704,2,247808,True,Muon,0,0.0003,0.1,0.95,0.9,0.95,1e-20,True,True,hybrid,10,0.18,logical matrix or packed logical matrices,Muon,PASS
+layers.2.attn.q_a_norm.weight,layers.2.attn.q_a_norm,352,1,352,True,AdamW,1,0.0003,0.1,0.95,0.9,0.95,1e-20,True,False,hybrid,10,0.18,report semantic exclusion,AdamW,PASS
+layers.2.attn.q_b_proj.weight,layers.2.attn.q_b_proj,704x352,2,247808,True,Muon,0,0.0003,0.1,0.95,0.9,0.95,1e-20,True,True,hybrid,10,0.18,logical matrix or packed logical matrices,Muon,PASS
+layers.2.attn.kv_proj.weight,layers.2.attn.kv_proj,64x704,2,45056,True,Muon,0,0.0003,0.1,0.95,0.9,0.95,1e-20,True,True,hybrid,10,0.18,logical matrix or packed logical matrices,Muon,PASS
+layers.2.attn.kv_norm.weight,layers.2.attn.kv_norm,64,1,64,True,AdamW,1,0.0003,0.1,0.95,0.9,0.95,1e-20,True,False,hybrid,10,0.18,report semantic exclusion,AdamW,PASS
+layers.2.attn.o_a_proj.weight,layers.2.attn.o_a_proj,64x704,2,45056,True,Muon,0,0.0003,0.1,0.95,0.9,0.95,1e-20,True,True,hybrid,10,0.18,logical matrix or packed logical matrices,Muon,PASS
+layers.2.attn.o_b_proj.weight,layers.2.attn.o_b_proj,704x64,2,45056,True,Muon,0,0.0003,0.1,0.95,0.9,0.95,1e-20,True,True,hybrid,10,0.18,logical matrix or packed logical matrices,Muon,PASS
+layers.2.attn.compressor.position_bias,layers.2.attn.compressor,4x128,2,512,True,Muon,0,0.0003,0.1,0.95,0.9,0.95,1e-20,True,True,hybrid,10,0.18,logical matrix or packed logical matrices,Muon,PASS
+layers.2.attn.compressor.kv_proj.weight,layers.2.attn.compressor.kv_proj,128x704,2,90112,True,Muon,0,0.0003,0.1,0.95,0.9,0.95,1e-20,True,True,hybrid,10,0.18,logical matrix or packed logical matrices,Muon,PASS
+layers.2.attn.compressor.gate_proj.weight,layers.2.attn.compressor.gate_proj,128x704,2,90112,True,Muon,0,0.0003,0.1,0.95,0.9,0.95,1e-20,True,True,hybrid,10,0.18,logical matrix or packed logical matrices,Muon,PASS
+layers.2.attn.compressor.kv_norm.weight,layers.2.attn.compressor.kv_norm,64,1,64,True,AdamW,1,0.0003,0.1,0.95,0.9,0.95,1e-20,True,False,hybrid,10,0.18,report semantic exclusion,AdamW,PASS
+layers.2.attn.compressor.indexer.position_bias,layers.2.attn.compressor.indexer,4x64,2,256,True,Muon,0,0.0003,0.1,0.95,0.9,0.95,1e-20,True,True,hybrid,10,0.18,logical matrix or packed logical matrices,Muon,PASS
+layers.2.attn.compressor.indexer.kv_proj.weight,layers.2.attn.compressor.indexer.kv_proj,64x704,2,45056,True,Muon,0,0.0003,0.1,0.95,0.9,0.95,1e-20,True,True,hybrid,10,0.18,logical matrix or packed logical matrices,Muon,PASS
+layers.2.attn.compressor.indexer.gate_proj.weight,layers.2.attn.compressor.indexer.gate_proj,64x704,2,45056,True,Muon,0,0.0003,0.1,0.95,0.9,0.95,1e-20,True,True,hybrid,10,0.18,logical matrix or packed logical matrices,Muon,PASS
+layers.2.attn.compressor.indexer.kv_norm.weight,layers.2.attn.compressor.indexer.kv_norm,32,1,32,True,AdamW,1,0.0003,0.1,0.95,0.9,0.95,1e-20,True,False,hybrid,10,0.18,report semantic exclusion,AdamW,PASS
+layers.2.attn.compressor.indexer.q_b_proj.weight,layers.2.attn.compressor.indexer.q_b_proj,352x352,2,123904,True,Muon,0,0.0003,0.1,0.95,0.9,0.95,1e-20,True,True,hybrid,10,0.18,logical matrix or packed logical matrices,Muon,PASS
+layers.2.attn.compressor.indexer.scorer.weights_proj.weight,layers.2.attn.compressor.indexer.scorer.weights_proj,11x704,2,7744,True,Muon,0,0.0003,0.1,0.95,0.9,0.95,1e-20,True,True,hybrid,10,0.18,logical matrix or packed logical matrices,Muon,PASS
+layers.2.ffn_norm.weight,layers.2.ffn_norm,704,1,704,True,AdamW,1,0.0003,0.1,0.95,0.9,0.95,1e-20,True,False,hybrid,10,0.18,report semantic exclusion,AdamW,PASS
+layers.2.ffn.gate.weight,layers.2.ffn.gate,16x704,2,11264,True,AdamW,1,0.0003,0.1,0.95,0.9,0.95,1e-20,True,False,hybrid,10,0.18,report semantic exclusion,AdamW,PASS
+layers.2.ffn.experts.gate_up_proj,layers.2.ffn.experts,16x1024x704,3,11534336,True,Muon,0,0.0003,0.1,0.95,0.9,0.95,1e-20,True,True,hybrid,10,0.18,logical matrix or packed logical matrices,Muon,PASS
+layers.2.ffn.experts.down_proj,layers.2.ffn.experts,16x704x512,3,5767168,True,Muon,0,0.0003,0.1,0.95,0.9,0.95,1e-20,True,True,hybrid,10,0.18,logical matrix or packed logical matrices,Muon,PASS
+layers.2.ffn.shared_experts.gate_proj.weight,layers.2.ffn.shared_experts.gate_proj,512x704,2,360448,True,Muon,0,0.0003,0.1,0.95,0.9,0.95,1e-20,True,True,hybrid,10,0.18,logical matrix or packed logical matrices,Muon,PASS
+layers.2.ffn.shared_experts.up_proj.weight,layers.2.ffn.shared_experts.up_proj,512x704,2,360448,True,Muon,0,0.0003,0.1,0.95,0.9,0.95,1e-20,True,True,hybrid,10,0.18,logical matrix or packed logical matrices,Muon,PASS
+layers.2.ffn.shared_experts.down_proj.weight,layers.2.ffn.shared_experts.down_proj,704x512,2,360448,True,Muon,0,0.0003,0.1,0.95,0.9,0.95,1e-20,True,True,hybrid,10,0.18,logical matrix or packed logical matrices,Muon,PASS
+layers.3.attn_norm.weight,layers.3.attn_norm,704,1,704,True,AdamW,1,0.0003,0.1,0.95,0.9,0.95,1e-20,True,False,hybrid,10,0.18,report semantic exclusion,AdamW,PASS
+layers.3.attn.sinks,layers.3.attn,11,1,11,True,AdamW,1,0.0003,0.1,0.95,0.9,0.95,1e-20,True,False,hybrid,10,0.18,report semantic exclusion,AdamW,PASS
+layers.3.attn.q_a_proj.weight,layers.3.attn.q_a_proj,352x704,2,247808,True,Muon,0,0.0003,0.1,0.95,0.9,0.95,1e-20,True,True,hybrid,10,0.18,logical matrix or packed logical matrices,Muon,PASS
+layers.3.attn.q_a_norm.weight,layers.3.attn.q_a_norm,352,1,352,True,AdamW,1,0.0003,0.1,0.95,0.9,0.95,1e-20,True,False,hybrid,10,0.18,report semantic exclusion,AdamW,PASS
+layers.3.attn.q_b_proj.weight,layers.3.attn.q_b_proj,704x352,2,247808,True,Muon,0,0.0003,0.1,0.95,0.9,0.95,1e-20,True,True,hybrid,10,0.18,logical matrix or packed logical matrices,Muon,PASS
+layers.3.attn.kv_proj.weight,layers.3.attn.kv_proj,64x704,2,45056,True,Muon,0,0.0003,0.1,0.95,0.9,0.95,1e-20,True,True,hybrid,10,0.18,logical matrix or packed logical matrices,Muon,PASS
+layers.3.attn.kv_norm.weight,layers.3.attn.kv_norm,64,1,64,True,AdamW,1,0.0003,0.1,0.95,0.9,0.95,1e-20,True,False,hybrid,10,0.18,report semantic exclusion,AdamW,PASS
+layers.3.attn.o_a_proj.weight,layers.3.attn.o_a_proj,64x704,2,45056,True,Muon,0,0.0003,0.1,0.95,0.9,0.95,1e-20,True,True,hybrid,10,0.18,logical matrix or packed logical matrices,Muon,PASS
+layers.3.attn.o_b_proj.weight,layers.3.attn.o_b_proj,704x64,2,45056,True,Muon,0,0.0003,0.1,0.95,0.9,0.95,1e-20,True,True,hybrid,10,0.18,logical matrix or packed logical matrices,Muon,PASS
+layers.3.attn.compressor.position_bias,layers.3.attn.compressor,128x64,2,8192,True,Muon,0,0.0003,0.1,0.95,0.9,0.95,1e-20,True,True,hybrid,10,0.18,logical matrix or packed logical matrices,Muon,PASS
+layers.3.attn.compressor.kv_proj.weight,layers.3.attn.compressor.kv_proj,64x704,2,45056,True,Muon,0,0.0003,0.1,0.95,0.9,0.95,1e-20,True,True,hybrid,10,0.18,logical matrix or packed logical matrices,Muon,PASS
+layers.3.attn.compressor.gate_proj.weight,layers.3.attn.compressor.gate_proj,64x704,2,45056,True,Muon,0,0.0003,0.1,0.95,0.9,0.95,1e-20,True,True,hybrid,10,0.18,logical matrix or packed logical matrices,Muon,PASS
+layers.3.attn.compressor.kv_norm.weight,layers.3.attn.compressor.kv_norm,64,1,64,True,AdamW,1,0.0003,0.1,0.95,0.9,0.95,1e-20,True,False,hybrid,10,0.18,report semantic exclusion,AdamW,PASS
+layers.3.ffn_norm.weight,layers.3.ffn_norm,704,1,704,True,AdamW,1,0.0003,0.1,0.95,0.9,0.95,1e-20,True,False,hybrid,10,0.18,report semantic exclusion,AdamW,PASS
+layers.3.ffn.gate.weight,layers.3.ffn.gate,16x704,2,11264,True,AdamW,1,0.0003,0.1,0.95,0.9,0.95,1e-20,True,False,hybrid,10,0.18,report semantic exclusion,AdamW,PASS
+layers.3.ffn.experts.gate_up_proj,layers.3.ffn.experts,16x1024x704,3,11534336,True,Muon,0,0.0003,0.1,0.95,0.9,0.95,1e-20,True,True,hybrid,10,0.18,logical matrix or packed logical matrices,Muon,PASS
+layers.3.ffn.experts.down_proj,layers.3.ffn.experts,16x704x512,3,5767168,True,Muon,0,0.0003,0.1,0.95,0.9,0.95,1e-20,True,True,hybrid,10,0.18,logical matrix or packed logical matrices,Muon,PASS
+layers.3.ffn.shared_experts.gate_proj.weight,layers.3.ffn.shared_experts.gate_proj,512x704,2,360448,True,Muon,0,0.0003,0.1,0.95,0.9,0.95,1e-20,True,True,hybrid,10,0.18,logical matrix or packed logical matrices,Muon,PASS
+layers.3.ffn.shared_experts.up_proj.weight,layers.3.ffn.shared_experts.up_proj,512x704,2,360448,True,Muon,0,0.0003,0.1,0.95,0.9,0.95,1e-20,True,True,hybrid,10,0.18,logical matrix or packed logical matrices,Muon,PASS
+layers.3.ffn.shared_experts.down_proj.weight,layers.3.ffn.shared_experts.down_proj,704x512,2,360448,True,Muon,0,0.0003,0.1,0.95,0.9,0.95,1e-20,True,True,hybrid,10,0.18,logical matrix or packed logical matrices,Muon,PASS
+layers.4.attn_norm.weight,layers.4.attn_norm,704,1,704,True,AdamW,1,0.0003,0.1,0.95,0.9,0.95,1e-20,True,False,hybrid,10,0.18,report semantic exclusion,AdamW,PASS
+layers.4.attn.sinks,layers.4.attn,11,1,11,True,AdamW,1,0.0003,0.1,0.95,0.9,0.95,1e-20,True,False,hybrid,10,0.18,report semantic exclusion,AdamW,PASS
+layers.4.attn.q_a_proj.weight,layers.4.attn.q_a_proj,352x704,2,247808,True,Muon,0,0.0003,0.1,0.95,0.9,0.95,1e-20,True,True,hybrid,10,0.18,logical matrix or packed logical matrices,Muon,PASS
+layers.4.attn.q_a_norm.weight,layers.4.attn.q_a_norm,352,1,352,True,AdamW,1,0.0003,0.1,0.95,0.9,0.95,1e-20,True,False,hybrid,10,0.18,report semantic exclusion,AdamW,PASS
+layers.4.attn.q_b_proj.weight,layers.4.attn.q_b_proj,704x352,2,247808,True,Muon,0,0.0003,0.1,0.95,0.9,0.95,1e-20,True,True,hybrid,10,0.18,logical matrix or packed logical matrices,Muon,PASS
+layers.4.attn.kv_proj.weight,layers.4.attn.kv_proj,64x704,2,45056,True,Muon,0,0.0003,0.1,0.95,0.9,0.95,1e-20,True,True,hybrid,10,0.18,logical matrix or packed logical matrices,Muon,PASS
+layers.4.attn.kv_norm.weight,layers.4.attn.kv_norm,64,1,64,True,AdamW,1,0.0003,0.1,0.95,0.9,0.95,1e-20,True,False,hybrid,10,0.18,report semantic exclusion,AdamW,PASS
+layers.4.attn.o_a_proj.weight,layers.4.attn.o_a_proj,64x704,2,45056,True,Muon,0,0.0003,0.1,0.95,0.9,0.95,1e-20,True,True,hybrid,10,0.18,logical matrix or packed logical matrices,Muon,PASS
+layers.4.attn.o_b_proj.weight,layers.4.attn.o_b_proj,704x64,2,45056,True,Muon,0,0.0003,0.1,0.95,0.9,0.95,1e-20,True,True,hybrid,10,0.18,logical matrix or packed logical matrices,Muon,PASS
+layers.4.attn.compressor.position_bias,layers.4.attn.compressor,4x128,2,512,True,Muon,0,0.0003,0.1,0.95,0.9,0.95,1e-20,True,True,hybrid,10,0.18,logical matrix or packed logical matrices,Muon,PASS
+layers.4.attn.compressor.kv_proj.weight,layers.4.attn.compressor.kv_proj,128x704,2,90112,True,Muon,0,0.0003,0.1,0.95,0.9,0.95,1e-20,True,True,hybrid,10,0.18,logical matrix or packed logical matrices,Muon,PASS
+layers.4.attn.compressor.gate_proj.weight,layers.4.attn.compressor.gate_proj,128x704,2,90112,True,Muon,0,0.0003,0.1,0.95,0.9,0.95,1e-20,True,True,hybrid,10,0.18,logical matrix or packed logical matrices,Muon,PASS
+layers.4.attn.compressor.kv_norm.weight,layers.4.attn.compressor.kv_norm,64,1,64,True,AdamW,1,0.0003,0.1,0.95,0.9,0.95,1e-20,True,False,hybrid,10,0.18,report semantic exclusion,AdamW,PASS
+layers.4.attn.compressor.indexer.position_bias,layers.4.attn.compressor.indexer,4x64,2,256,True,Muon,0,0.0003,0.1,0.95,0.9,0.95,1e-20,True,True,hybrid,10,0.18,logical matrix or packed logical matrices,Muon,PASS
+layers.4.attn.compressor.indexer.kv_proj.weight,layers.4.attn.compressor.indexer.kv_proj,64x704,2,45056,True,Muon,0,0.0003,0.1,0.95,0.9,0.95,1e-20,True,True,hybrid,10,0.18,logical matrix or packed logical matrices,Muon,PASS
+layers.4.attn.compressor.indexer.gate_proj.weight,layers.4.attn.compressor.indexer.gate_proj,64x704,2,45056,True,Muon,0,0.0003,0.1,0.95,0.9,0.95,1e-20,True,True,hybrid,10,0.18,logical matrix or packed logical matrices,Muon,PASS
+layers.4.attn.compressor.indexer.kv_norm.weight,layers.4.attn.compressor.indexer.kv_norm,32,1,32,True,AdamW,1,0.0003,0.1,0.95,0.9,0.95,1e-20,True,False,hybrid,10,0.18,report semantic exclusion,AdamW,PASS
+layers.4.attn.compressor.indexer.q_b_proj.weight,layers.4.attn.compressor.indexer.q_b_proj,352x352,2,123904,True,Muon,0,0.0003,0.1,0.95,0.9,0.95,1e-20,True,True,hybrid,10,0.18,logical matrix or packed logical matrices,Muon,PASS
+layers.4.attn.compressor.indexer.scorer.weights_proj.weight,layers.4.attn.compressor.indexer.scorer.weights_proj,11x704,2,7744,True,Muon,0,0.0003,0.1,0.95,0.9,0.95,1e-20,True,True,hybrid,10,0.18,logical matrix or packed logical matrices,Muon,PASS
+layers.4.ffn_norm.weight,layers.4.ffn_norm,704,1,704,True,AdamW,1,0.0003,0.1,0.95,0.9,0.95,1e-20,True,False,hybrid,10,0.18,report semantic exclusion,AdamW,PASS
+layers.4.ffn.gate.weight,layers.4.ffn.gate,16x704,2,11264,True,AdamW,1,0.0003,0.1,0.95,0.9,0.95,1e-20,True,False,hybrid,10,0.18,report semantic exclusion,AdamW,PASS
+layers.4.ffn.experts.gate_up_proj,layers.4.ffn.experts,16x1024x704,3,11534336,True,Muon,0,0.0003,0.1,0.95,0.9,0.95,1e-20,True,True,hybrid,10,0.18,logical matrix or packed logical matrices,Muon,PASS
+layers.4.ffn.experts.down_proj,layers.4.ffn.experts,16x704x512,3,5767168,True,Muon,0,0.0003,0.1,0.95,0.9,0.95,1e-20,True,True,hybrid,10,0.18,logical matrix or packed logical matrices,Muon,PASS
+layers.4.ffn.shared_experts.gate_proj.weight,layers.4.ffn.shared_experts.gate_proj,512x704,2,360448,True,Muon,0,0.0003,0.1,0.95,0.9,0.95,1e-20,True,True,hybrid,10,0.18,logical matrix or packed logical matrices,Muon,PASS
+layers.4.ffn.shared_experts.up_proj.weight,layers.4.ffn.shared_experts.up_proj,512x704,2,360448,True,Muon,0,0.0003,0.1,0.95,0.9,0.95,1e-20,True,True,hybrid,10,0.18,logical matrix or packed logical matrices,Muon,PASS
+layers.4.ffn.shared_experts.down_proj.weight,layers.4.ffn.shared_experts.down_proj,704x512,2,360448,True,Muon,0,0.0003,0.1,0.95,0.9,0.95,1e-20,True,True,hybrid,10,0.18,logical matrix or packed logical matrices,Muon,PASS
+layers.5.attn_norm.weight,layers.5.attn_norm,704,1,704,True,AdamW,1,0.0003,0.1,0.95,0.9,0.95,1e-20,True,False,hybrid,10,0.18,report semantic exclusion,AdamW,PASS
+layers.5.attn.sinks,layers.5.attn,11,1,11,True,AdamW,1,0.0003,0.1,0.95,0.9,0.95,1e-20,True,False,hybrid,10,0.18,report semantic exclusion,AdamW,PASS
+layers.5.attn.q_a_proj.weight,layers.5.attn.q_a_proj,352x704,2,247808,True,Muon,0,0.0003,0.1,0.95,0.9,0.95,1e-20,True,True,hybrid,10,0.18,logical matrix or packed logical matrices,Muon,PASS
+layers.5.attn.q_a_norm.weight,layers.5.attn.q_a_norm,352,1,352,True,AdamW,1,0.0003,0.1,0.95,0.9,0.95,1e-20,True,False,hybrid,10,0.18,report semantic exclusion,AdamW,PASS
+layers.5.attn.q_b_proj.weight,layers.5.attn.q_b_proj,704x352,2,247808,True,Muon,0,0.0003,0.1,0.95,0.9,0.95,1e-20,True,True,hybrid,10,0.18,logical matrix or packed logical matrices,Muon,PASS
+layers.5.attn.kv_proj.weight,layers.5.attn.kv_proj,64x704,2,45056,True,Muon,0,0.0003,0.1,0.95,0.9,0.95,1e-20,True,True,hybrid,10,0.18,logical matrix or packed logical matrices,Muon,PASS
+layers.5.attn.kv_norm.weight,layers.5.attn.kv_norm,64,1,64,True,AdamW,1,0.0003,0.1,0.95,0.9,0.95,1e-20,True,False,hybrid,10,0.18,report semantic exclusion,AdamW,PASS
+layers.5.attn.o_a_proj.weight,layers.5.attn.o_a_proj,64x704,2,45056,True,Muon,0,0.0003,0.1,0.95,0.9,0.95,1e-20,True,True,hybrid,10,0.18,logical matrix or packed logical matrices,Muon,PASS
+layers.5.attn.o_b_proj.weight,layers.5.attn.o_b_proj,704x64,2,45056,True,Muon,0,0.0003,0.1,0.95,0.9,0.95,1e-20,True,True,hybrid,10,0.18,logical matrix or packed logical matrices,Muon,PASS
+layers.5.attn.compressor.position_bias,layers.5.attn.compressor,128x64,2,8192,True,Muon,0,0.0003,0.1,0.95,0.9,0.95,1e-20,True,True,hybrid,10,0.18,logical matrix or packed logical matrices,Muon,PASS
+layers.5.attn.compressor.kv_proj.weight,layers.5.attn.compressor.kv_proj,64x704,2,45056,True,Muon,0,0.0003,0.1,0.95,0.9,0.95,1e-20,True,True,hybrid,10,0.18,logical matrix or packed logical matrices,Muon,PASS
+layers.5.attn.compressor.gate_proj.weight,layers.5.attn.compressor.gate_proj,64x704,2,45056,True,Muon,0,0.0003,0.1,0.95,0.9,0.95,1e-20,True,True,hybrid,10,0.18,logical matrix or packed logical matrices,Muon,PASS
+layers.5.attn.compressor.kv_norm.weight,layers.5.attn.compressor.kv_norm,64,1,64,True,AdamW,1,0.0003,0.1,0.95,0.9,0.95,1e-20,True,False,hybrid,10,0.18,report semantic exclusion,AdamW,PASS
+layers.5.ffn_norm.weight,layers.5.ffn_norm,704,1,704,True,AdamW,1,0.0003,0.1,0.95,0.9,0.95,1e-20,True,False,hybrid,10,0.18,report semantic exclusion,AdamW,PASS
+layers.5.ffn.gate.weight,layers.5.ffn.gate,16x704,2,11264,True,AdamW,1,0.0003,0.1,0.95,0.9,0.95,1e-20,True,False,hybrid,10,0.18,report semantic exclusion,AdamW,PASS
+layers.5.ffn.experts.gate_up_proj,layers.5.ffn.experts,16x1024x704,3,11534336,True,Muon,0,0.0003,0.1,0.95,0.9,0.95,1e-20,True,True,hybrid,10,0.18,logical matrix or packed logical matrices,Muon,PASS
+layers.5.ffn.experts.down_proj,layers.5.ffn.experts,16x704x512,3,5767168,True,Muon,0,0.0003,0.1,0.95,0.9,0.95,1e-20,True,True,hybrid,10,0.18,logical matrix or packed logical matrices,Muon,PASS
+layers.5.ffn.shared_experts.gate_proj.weight,layers.5.ffn.shared_experts.gate_proj,512x704,2,360448,True,Muon,0,0.0003,0.1,0.95,0.9,0.95,1e-20,True,True,hybrid,10,0.18,logical matrix or packed logical matrices,Muon,PASS
+layers.5.ffn.shared_experts.up_proj.weight,layers.5.ffn.shared_experts.up_proj,512x704,2,360448,True,Muon,0,0.0003,0.1,0.95,0.9,0.95,1e-20,True,True,hybrid,10,0.18,logical matrix or packed logical matrices,Muon,PASS
+layers.5.ffn.shared_experts.down_proj.weight,layers.5.ffn.shared_experts.down_proj,704x512,2,360448,True,Muon,0,0.0003,0.1,0.95,0.9,0.95,1e-20,True,True,hybrid,10,0.18,logical matrix or packed logical matrices,Muon,PASS
+layers.6.attn_norm.weight,layers.6.attn_norm,704,1,704,True,AdamW,1,0.0003,0.1,0.95,0.9,0.95,1e-20,True,False,hybrid,10,0.18,report semantic exclusion,AdamW,PASS
+layers.6.attn.sinks,layers.6.attn,11,1,11,True,AdamW,1,0.0003,0.1,0.95,0.9,0.95,1e-20,True,False,hybrid,10,0.18,report semantic exclusion,AdamW,PASS
+layers.6.attn.q_a_proj.weight,layers.6.attn.q_a_proj,352x704,2,247808,True,Muon,0,0.0003,0.1,0.95,0.9,0.95,1e-20,True,True,hybrid,10,0.18,logical matrix or packed logical matrices,Muon,PASS
+layers.6.attn.q_a_norm.weight,layers.6.attn.q_a_norm,352,1,352,True,AdamW,1,0.0003,0.1,0.95,0.9,0.95,1e-20,True,False,hybrid,10,0.18,report semantic exclusion,AdamW,PASS
+layers.6.attn.q_b_proj.weight,layers.6.attn.q_b_proj,704x352,2,247808,True,Muon,0,0.0003,0.1,0.95,0.9,0.95,1e-20,True,True,hybrid,10,0.18,logical matrix or packed logical matrices,Muon,PASS
+layers.6.attn.kv_proj.weight,layers.6.attn.kv_proj,64x704,2,45056,True,Muon,0,0.0003,0.1,0.95,0.9,0.95,1e-20,True,True,hybrid,10,0.18,logical matrix or packed logical matrices,Muon,PASS
+layers.6.attn.kv_norm.weight,layers.6.attn.kv_norm,64,1,64,True,AdamW,1,0.0003,0.1,0.95,0.9,0.95,1e-20,True,False,hybrid,10,0.18,report semantic exclusion,AdamW,PASS
+layers.6.attn.o_a_proj.weight,layers.6.attn.o_a_proj,64x704,2,45056,True,Muon,0,0.0003,0.1,0.95,0.9,0.95,1e-20,True,True,hybrid,10,0.18,logical matrix or packed logical matrices,Muon,PASS
+layers.6.attn.o_b_proj.weight,layers.6.attn.o_b_proj,704x64,2,45056,True,Muon,0,0.0003,0.1,0.95,0.9,0.95,1e-20,True,True,hybrid,10,0.18,logical matrix or packed logical matrices,Muon,PASS
+layers.6.attn.compressor.position_bias,layers.6.attn.compressor,4x128,2,512,True,Muon,0,0.0003,0.1,0.95,0.9,0.95,1e-20,True,True,hybrid,10,0.18,logical matrix or packed logical matrices,Muon,PASS
+layers.6.attn.compressor.kv_proj.weight,layers.6.attn.compressor.kv_proj,128x704,2,90112,True,Muon,0,0.0003,0.1,0.95,0.9,0.95,1e-20,True,True,hybrid,10,0.18,logical matrix or packed logical matrices,Muon,PASS
+layers.6.attn.compressor.gate_proj.weight,layers.6.attn.compressor.gate_proj,128x704,2,90112,True,Muon,0,0.0003,0.1,0.95,0.9,0.95,1e-20,True,True,hybrid,10,0.18,logical matrix or packed logical matrices,Muon,PASS
+layers.6.attn.compressor.kv_norm.weight,layers.6.attn.compressor.kv_norm,64,1,64,True,AdamW,1,0.0003,0.1,0.95,0.9,0.95,1e-20,True,False,hybrid,10,0.18,report semantic exclusion,AdamW,PASS
+layers.6.attn.compressor.indexer.position_bias,layers.6.attn.compressor.indexer,4x64,2,256,True,Muon,0,0.0003,0.1,0.95,0.9,0.95,1e-20,True,True,hybrid,10,0.18,logical matrix or packed logical matrices,Muon,PASS
+layers.6.attn.compressor.indexer.kv_proj.weight,layers.6.attn.compressor.indexer.kv_proj,64x704,2,45056,True,Muon,0,0.0003,0.1,0.95,0.9,0.95,1e-20,True,True,hybrid,10,0.18,logical matrix or packed logical matrices,Muon,PASS
+layers.6.attn.compressor.indexer.gate_proj.weight,layers.6.attn.compressor.indexer.gate_proj,64x704,2,45056,True,Muon,0,0.0003,0.1,0.95,0.9,0.95,1e-20,True,True,hybrid,10,0.18,logical matrix or packed logical matrices,Muon,PASS
+layers.6.attn.compressor.indexer.kv_norm.weight,layers.6.attn.compressor.indexer.kv_norm,32,1,32,True,AdamW,1,0.0003,0.1,0.95,0.9,0.95,1e-20,True,False,hybrid,10,0.18,report semantic exclusion,AdamW,PASS
+layers.6.attn.compressor.indexer.q_b_proj.weight,layers.6.attn.compressor.indexer.q_b_proj,352x352,2,123904,True,Muon,0,0.0003,0.1,0.95,0.9,0.95,1e-20,True,True,hybrid,10,0.18,logical matrix or packed logical matrices,Muon,PASS
+layers.6.attn.compressor.indexer.scorer.weights_proj.weight,layers.6.attn.compressor.indexer.scorer.weights_proj,11x704,2,7744,True,Muon,0,0.0003,0.1,0.95,0.9,0.95,1e-20,True,True,hybrid,10,0.18,logical matrix or packed logical matrices,Muon,PASS
+layers.6.ffn_norm.weight,layers.6.ffn_norm,704,1,704,True,AdamW,1,0.0003,0.1,0.95,0.9,0.95,1e-20,True,False,hybrid,10,0.18,report semantic exclusion,AdamW,PASS
+layers.6.ffn.gate.weight,layers.6.ffn.gate,16x704,2,11264,True,AdamW,1,0.0003,0.1,0.95,0.9,0.95,1e-20,True,False,hybrid,10,0.18,report semantic exclusion,AdamW,PASS
+layers.6.ffn.experts.gate_up_proj,layers.6.ffn.experts,16x1024x704,3,11534336,True,Muon,0,0.0003,0.1,0.95,0.9,0.95,1e-20,True,True,hybrid,10,0.18,logical matrix or packed logical matrices,Muon,PASS
+layers.6.ffn.experts.down_proj,layers.6.ffn.experts,16x704x512,3,5767168,True,Muon,0,0.0003,0.1,0.95,0.9,0.95,1e-20,True,True,hybrid,10,0.18,logical matrix or packed logical matrices,Muon,PASS
+layers.6.ffn.shared_experts.gate_proj.weight,layers.6.ffn.shared_experts.gate_proj,512x704,2,360448,True,Muon,0,0.0003,0.1,0.95,0.9,0.95,1e-20,True,True,hybrid,10,0.18,logical matrix or packed logical matrices,Muon,PASS
+layers.6.ffn.shared_experts.up_proj.weight,layers.6.ffn.shared_experts.up_proj,512x704,2,360448,True,Muon,0,0.0003,0.1,0.95,0.9,0.95,1e-20,True,True,hybrid,10,0.18,logical matrix or packed logical matrices,Muon,PASS
+layers.6.ffn.shared_experts.down_proj.weight,layers.6.ffn.shared_experts.down_proj,704x512,2,360448,True,Muon,0,0.0003,0.1,0.95,0.9,0.95,1e-20,True,True,hybrid,10,0.18,logical matrix or packed logical matrices,Muon,PASS
+layers.7.attn_norm.weight,layers.7.attn_norm,704,1,704,True,AdamW,1,0.0003,0.1,0.95,0.9,0.95,1e-20,True,False,hybrid,10,0.18,report semantic exclusion,AdamW,PASS
+layers.7.attn.sinks,layers.7.attn,11,1,11,True,AdamW,1,0.0003,0.1,0.95,0.9,0.95,1e-20,True,False,hybrid,10,0.18,report semantic exclusion,AdamW,PASS
+layers.7.attn.q_a_proj.weight,layers.7.attn.q_a_proj,352x704,2,247808,True,Muon,0,0.0003,0.1,0.95,0.9,0.95,1e-20,True,True,hybrid,10,0.18,logical matrix or packed logical matrices,Muon,PASS
+layers.7.attn.q_a_norm.weight,layers.7.attn.q_a_norm,352,1,352,True,AdamW,1,0.0003,0.1,0.95,0.9,0.95,1e-20,True,False,hybrid,10,0.18,report semantic exclusion,AdamW,PASS
+layers.7.attn.q_b_proj.weight,layers.7.attn.q_b_proj,704x352,2,247808,True,Muon,0,0.0003,0.1,0.95,0.9,0.95,1e-20,True,True,hybrid,10,0.18,logical matrix or packed logical matrices,Muon,PASS
+layers.7.attn.kv_proj.weight,layers.7.attn.kv_proj,64x704,2,45056,True,Muon,0,0.0003,0.1,0.95,0.9,0.95,1e-20,True,True,hybrid,10,0.18,logical matrix or packed logical matrices,Muon,PASS
+layers.7.attn.kv_norm.weight,layers.7.attn.kv_norm,64,1,64,True,AdamW,1,0.0003,0.1,0.95,0.9,0.95,1e-20,True,False,hybrid,10,0.18,report semantic exclusion,AdamW,PASS
+layers.7.attn.o_a_proj.weight,layers.7.attn.o_a_proj,64x704,2,45056,True,Muon,0,0.0003,0.1,0.95,0.9,0.95,1e-20,True,True,hybrid,10,0.18,logical matrix or packed logical matrices,Muon,PASS
+layers.7.attn.o_b_proj.weight,layers.7.attn.o_b_proj,704x64,2,45056,True,Muon,0,0.0003,0.1,0.95,0.9,0.95,1e-20,True,True,hybrid,10,0.18,logical matrix or packed logical matrices,Muon,PASS
+layers.7.attn.compressor.position_bias,layers.7.attn.compressor,128x64,2,8192,True,Muon,0,0.0003,0.1,0.95,0.9,0.95,1e-20,True,True,hybrid,10,0.18,logical matrix or packed logical matrices,Muon,PASS
+layers.7.attn.compressor.kv_proj.weight,layers.7.attn.compressor.kv_proj,64x704,2,45056,True,Muon,0,0.0003,0.1,0.95,0.9,0.95,1e-20,True,True,hybrid,10,0.18,logical matrix or packed logical matrices,Muon,PASS
+layers.7.attn.compressor.gate_proj.weight,layers.7.attn.compressor.gate_proj,64x704,2,45056,True,Muon,0,0.0003,0.1,0.95,0.9,0.95,1e-20,True,True,hybrid,10,0.18,logical matrix or packed logical matrices,Muon,PASS
+layers.7.attn.compressor.kv_norm.weight,layers.7.attn.compressor.kv_norm,64,1,64,True,AdamW,1,0.0003,0.1,0.95,0.9,0.95,1e-20,True,False,hybrid,10,0.18,report semantic exclusion,AdamW,PASS
+layers.7.ffn_norm.weight,layers.7.ffn_norm,704,1,704,True,AdamW,1,0.0003,0.1,0.95,0.9,0.95,1e-20,True,False,hybrid,10,0.18,report semantic exclusion,AdamW,PASS
+layers.7.ffn.gate.weight,layers.7.ffn.gate,16x704,2,11264,True,AdamW,1,0.0003,0.1,0.95,0.9,0.95,1e-20,True,False,hybrid,10,0.18,report semantic exclusion,AdamW,PASS
+layers.7.ffn.experts.gate_up_proj,layers.7.ffn.experts,16x1024x704,3,11534336,True,Muon,0,0.0003,0.1,0.95,0.9,0.95,1e-20,True,True,hybrid,10,0.18,logical matrix or packed logical matrices,Muon,PASS
+layers.7.ffn.experts.down_proj,layers.7.ffn.experts,16x704x512,3,5767168,True,Muon,0,0.0003,0.1,0.95,0.9,0.95,1e-20,True,True,hybrid,10,0.18,logical matrix or packed logical matrices,Muon,PASS
+layers.7.ffn.shared_experts.gate_proj.weight,layers.7.ffn.shared_experts.gate_proj,512x704,2,360448,True,Muon,0,0.0003,0.1,0.95,0.9,0.95,1e-20,True,True,hybrid,10,0.18,logical matrix or packed logical matrices,Muon,PASS
+layers.7.ffn.shared_experts.up_proj.weight,layers.7.ffn.shared_experts.up_proj,512x704,2,360448,True,Muon,0,0.0003,0.1,0.95,0.9,0.95,1e-20,True,True,hybrid,10,0.18,logical matrix or packed logical matrices,Muon,PASS
+layers.7.ffn.shared_experts.down_proj.weight,layers.7.ffn.shared_experts.down_proj,704x512,2,360448,True,Muon,0,0.0003,0.1,0.95,0.9,0.95,1e-20,True,True,hybrid,10,0.18,logical matrix or packed logical matrices,Muon,PASS
+layers.8.attn_norm.weight,layers.8.attn_norm,704,1,704,True,AdamW,1,0.0003,0.1,0.95,0.9,0.95,1e-20,True,False,hybrid,10,0.18,report semantic exclusion,AdamW,PASS
+layers.8.attn.sinks,layers.8.attn,11,1,11,True,AdamW,1,0.0003,0.1,0.95,0.9,0.95,1e-20,True,False,hybrid,10,0.18,report semantic exclusion,AdamW,PASS
+layers.8.attn.q_a_proj.weight,layers.8.attn.q_a_proj,352x704,2,247808,True,Muon,0,0.0003,0.1,0.95,0.9,0.95,1e-20,True,True,hybrid,10,0.18,logical matrix or packed logical matrices,Muon,PASS
+layers.8.attn.q_a_norm.weight,layers.8.attn.q_a_norm,352,1,352,True,AdamW,1,0.0003,0.1,0.95,0.9,0.95,1e-20,True,False,hybrid,10,0.18,report semantic exclusion,AdamW,PASS
+layers.8.attn.q_b_proj.weight,layers.8.attn.q_b_proj,704x352,2,247808,True,Muon,0,0.0003,0.1,0.95,0.9,0.95,1e-20,True,True,hybrid,10,0.18,logical matrix or packed logical matrices,Muon,PASS
+layers.8.attn.kv_proj.weight,layers.8.attn.kv_proj,64x704,2,45056,True,Muon,0,0.0003,0.1,0.95,0.9,0.95,1e-20,True,True,hybrid,10,0.18,logical matrix or packed logical matrices,Muon,PASS
+layers.8.attn.kv_norm.weight,layers.8.attn.kv_norm,64,1,64,True,AdamW,1,0.0003,0.1,0.95,0.9,0.95,1e-20,True,False,hybrid,10,0.18,report semantic exclusion,AdamW,PASS
+layers.8.attn.o_a_proj.weight,layers.8.attn.o_a_proj,64x704,2,45056,True,Muon,0,0.0003,0.1,0.95,0.9,0.95,1e-20,True,True,hybrid,10,0.18,logical matrix or packed logical matrices,Muon,PASS
+layers.8.attn.o_b_proj.weight,layers.8.attn.o_b_proj,704x64,2,45056,True,Muon,0,0.0003,0.1,0.95,0.9,0.95,1e-20,True,True,hybrid,10,0.18,logical matrix or packed logical matrices,Muon,PASS
+layers.8.attn.compressor.position_bias,layers.8.attn.compressor,4x128,2,512,True,Muon,0,0.0003,0.1,0.95,0.9,0.95,1e-20,True,True,hybrid,10,0.18,logical matrix or packed logical matrices,Muon,PASS
+layers.8.attn.compressor.kv_proj.weight,layers.8.attn.compressor.kv_proj,128x704,2,90112,True,Muon,0,0.0003,0.1,0.95,0.9,0.95,1e-20,True,True,hybrid,10,0.18,logical matrix or packed logical matrices,Muon,PASS
+layers.8.attn.compressor.gate_proj.weight,layers.8.attn.compressor.gate_proj,128x704,2,90112,True,Muon,0,0.0003,0.1,0.95,0.9,0.95,1e-20,True,True,hybrid,10,0.18,logical matrix or packed logical matrices,Muon,PASS
+layers.8.attn.compressor.kv_norm.weight,layers.8.attn.compressor.kv_norm,64,1,64,True,AdamW,1,0.0003,0.1,0.95,0.9,0.95,1e-20,True,False,hybrid,10,0.18,report semantic exclusion,AdamW,PASS
+layers.8.attn.compressor.indexer.position_bias,layers.8.attn.compressor.indexer,4x64,2,256,True,Muon,0,0.0003,0.1,0.95,0.9,0.95,1e-20,True,True,hybrid,10,0.18,logical matrix or packed logical matrices,Muon,PASS
+layers.8.attn.compressor.indexer.kv_proj.weight,layers.8.attn.compressor.indexer.kv_proj,64x704,2,45056,True,Muon,0,0.0003,0.1,0.95,0.9,0.95,1e-20,True,True,hybrid,10,0.18,logical matrix or packed logical matrices,Muon,PASS
+layers.8.attn.compressor.indexer.gate_proj.weight,layers.8.attn.compressor.indexer.gate_proj,64x704,2,45056,True,Muon,0,0.0003,0.1,0.95,0.9,0.95,1e-20,True,True,hybrid,10,0.18,logical matrix or packed logical matrices,Muon,PASS
+layers.8.attn.compressor.indexer.kv_norm.weight,layers.8.attn.compressor.indexer.kv_norm,32,1,32,True,AdamW,1,0.0003,0.1,0.95,0.9,0.95,1e-20,True,False,hybrid,10,0.18,report semantic exclusion,AdamW,PASS
+layers.8.attn.compressor.indexer.q_b_proj.weight,layers.8.attn.compressor.indexer.q_b_proj,352x352,2,123904,True,Muon,0,0.0003,0.1,0.95,0.9,0.95,1e-20,True,True,hybrid,10,0.18,logical matrix or packed logical matrices,Muon,PASS
+layers.8.attn.compressor.indexer.scorer.weights_proj.weight,layers.8.attn.compressor.indexer.scorer.weights_proj,11x704,2,7744,True,Muon,0,0.0003,0.1,0.95,0.9,0.95,1e-20,True,True,hybrid,10,0.18,logical matrix or packed logical matrices,Muon,PASS
+layers.8.ffn_norm.weight,layers.8.ffn_norm,704,1,704,True,AdamW,1,0.0003,0.1,0.95,0.9,0.95,1e-20,True,False,hybrid,10,0.18,report semantic exclusion,AdamW,PASS
+layers.8.ffn.gate.weight,layers.8.ffn.gate,16x704,2,11264,True,AdamW,1,0.0003,0.1,0.95,0.9,0.95,1e-20,True,False,hybrid,10,0.18,report semantic exclusion,AdamW,PASS
+layers.8.ffn.experts.gate_up_proj,layers.8.ffn.experts,16x1024x704,3,11534336,True,Muon,0,0.0003,0.1,0.95,0.9,0.95,1e-20,True,True,hybrid,10,0.18,logical matrix or packed logical matrices,Muon,PASS
+layers.8.ffn.experts.down_proj,layers.8.ffn.experts,16x704x512,3,5767168,True,Muon,0,0.0003,0.1,0.95,0.9,0.95,1e-20,True,True,hybrid,10,0.18,logical matrix or packed logical matrices,Muon,PASS
+layers.8.ffn.shared_experts.gate_proj.weight,layers.8.ffn.shared_experts.gate_proj,512x704,2,360448,True,Muon,0,0.0003,0.1,0.95,0.9,0.95,1e-20,True,True,hybrid,10,0.18,logical matrix or packed logical matrices,Muon,PASS
+layers.8.ffn.shared_experts.up_proj.weight,layers.8.ffn.shared_experts.up_proj,512x704,2,360448,True,Muon,0,0.0003,0.1,0.95,0.9,0.95,1e-20,True,True,hybrid,10,0.18,logical matrix or packed logical matrices,Muon,PASS
+layers.8.ffn.shared_experts.down_proj.weight,layers.8.ffn.shared_experts.down_proj,704x512,2,360448,True,Muon,0,0.0003,0.1,0.95,0.9,0.95,1e-20,True,True,hybrid,10,0.18,logical matrix or packed logical matrices,Muon,PASS
+layers.9.attn_norm.weight,layers.9.attn_norm,704,1,704,True,AdamW,1,0.0003,0.1,0.95,0.9,0.95,1e-20,True,False,hybrid,10,0.18,report semantic exclusion,AdamW,PASS
+layers.9.attn.sinks,layers.9.attn,11,1,11,True,AdamW,1,0.0003,0.1,0.95,0.9,0.95,1e-20,True,False,hybrid,10,0.18,report semantic exclusion,AdamW,PASS
+layers.9.attn.q_a_proj.weight,layers.9.attn.q_a_proj,352x704,2,247808,True,Muon,0,0.0003,0.1,0.95,0.9,0.95,1e-20,True,True,hybrid,10,0.18,logical matrix or packed logical matrices,Muon,PASS
+layers.9.attn.q_a_norm.weight,layers.9.attn.q_a_norm,352,1,352,True,AdamW,1,0.0003,0.1,0.95,0.9,0.95,1e-20,True,False,hybrid,10,0.18,report semantic exclusion,AdamW,PASS
+layers.9.attn.q_b_proj.weight,layers.9.attn.q_b_proj,704x352,2,247808,True,Muon,0,0.0003,0.1,0.95,0.9,0.95,1e-20,True,True,hybrid,10,0.18,logical matrix or packed logical matrices,Muon,PASS
+layers.9.attn.kv_proj.weight,layers.9.attn.kv_proj,64x704,2,45056,True,Muon,0,0.0003,0.1,0.95,0.9,0.95,1e-20,True,True,hybrid,10,0.18,logical matrix or packed logical matrices,Muon,PASS
+layers.9.attn.kv_norm.weight,layers.9.attn.kv_norm,64,1,64,True,AdamW,1,0.0003,0.1,0.95,0.9,0.95,1e-20,True,False,hybrid,10,0.18,report semantic exclusion,AdamW,PASS
+layers.9.attn.o_a_proj.weight,layers.9.attn.o_a_proj,64x704,2,45056,True,Muon,0,0.0003,0.1,0.95,0.9,0.95,1e-20,True,True,hybrid,10,0.18,logical matrix or packed logical matrices,Muon,PASS
+layers.9.attn.o_b_proj.weight,layers.9.attn.o_b_proj,704x64,2,45056,True,Muon,0,0.0003,0.1,0.95,0.9,0.95,1e-20,True,True,hybrid,10,0.18,logical matrix or packed logical matrices,Muon,PASS
+layers.9.attn.compressor.position_bias,layers.9.attn.compressor,128x64,2,8192,True,Muon,0,0.0003,0.1,0.95,0.9,0.95,1e-20,True,True,hybrid,10,0.18,logical matrix or packed logical matrices,Muon,PASS
+layers.9.attn.compressor.kv_proj.weight,layers.9.attn.compressor.kv_proj,64x704,2,45056,True,Muon,0,0.0003,0.1,0.95,0.9,0.95,1e-20,True,True,hybrid,10,0.18,logical matrix or packed logical matrices,Muon,PASS
+layers.9.attn.compressor.gate_proj.weight,layers.9.attn.compressor.gate_proj,64x704,2,45056,True,Muon,0,0.0003,0.1,0.95,0.9,0.95,1e-20,True,True,hybrid,10,0.18,logical matrix or packed logical matrices,Muon,PASS
+layers.9.attn.compressor.kv_norm.weight,layers.9.attn.compressor.kv_norm,64,1,64,True,AdamW,1,0.0003,0.1,0.95,0.9,0.95,1e-20,True,False,hybrid,10,0.18,report semantic exclusion,AdamW,PASS
+layers.9.ffn_norm.weight,layers.9.ffn_norm,704,1,704,True,AdamW,1,0.0003,0.1,0.95,0.9,0.95,1e-20,True,False,hybrid,10,0.18,report semantic exclusion,AdamW,PASS
+layers.9.ffn.gate.weight,layers.9.ffn.gate,16x704,2,11264,True,AdamW,1,0.0003,0.1,0.95,0.9,0.95,1e-20,True,False,hybrid,10,0.18,report semantic exclusion,AdamW,PASS
+layers.9.ffn.experts.gate_up_proj,layers.9.ffn.experts,16x1024x704,3,11534336,True,Muon,0,0.0003,0.1,0.95,0.9,0.95,1e-20,True,True,hybrid,10,0.18,logical matrix or packed logical matrices,Muon,PASS
+layers.9.ffn.experts.down_proj,layers.9.ffn.experts,16x704x512,3,5767168,True,Muon,0,0.0003,0.1,0.95,0.9,0.95,1e-20,True,True,hybrid,10,0.18,logical matrix or packed logical matrices,Muon,PASS
+layers.9.ffn.shared_experts.gate_proj.weight,layers.9.ffn.shared_experts.gate_proj,512x704,2,360448,True,Muon,0,0.0003,0.1,0.95,0.9,0.95,1e-20,True,True,hybrid,10,0.18,logical matrix or packed logical matrices,Muon,PASS
+layers.9.ffn.shared_experts.up_proj.weight,layers.9.ffn.shared_experts.up_proj,512x704,2,360448,True,Muon,0,0.0003,0.1,0.95,0.9,0.95,1e-20,True,True,hybrid,10,0.18,logical matrix or packed logical matrices,Muon,PASS
+layers.9.ffn.shared_experts.down_proj.weight,layers.9.ffn.shared_experts.down_proj,704x512,2,360448,True,Muon,0,0.0003,0.1,0.95,0.9,0.95,1e-20,True,True,hybrid,10,0.18,logical matrix or packed logical matrices,Muon,PASS
+layers.10.attn_norm.weight,layers.10.attn_norm,704,1,704,True,AdamW,1,0.0003,0.1,0.95,0.9,0.95,1e-20,True,False,hybrid,10,0.18,report semantic exclusion,AdamW,PASS
+layers.10.attn.sinks,layers.10.attn,11,1,11,True,AdamW,1,0.0003,0.1,0.95,0.9,0.95,1e-20,True,False,hybrid,10,0.18,report semantic exclusion,AdamW,PASS
+layers.10.attn.q_a_proj.weight,layers.10.attn.q_a_proj,352x704,2,247808,True,Muon,0,0.0003,0.1,0.95,0.9,0.95,1e-20,True,True,hybrid,10,0.18,logical matrix or packed logical matrices,Muon,PASS
+layers.10.attn.q_a_norm.weight,layers.10.attn.q_a_norm,352,1,352,True,AdamW,1,0.0003,0.1,0.95,0.9,0.95,1e-20,True,False,hybrid,10,0.18,report semantic exclusion,AdamW,PASS
+layers.10.attn.q_b_proj.weight,layers.10.attn.q_b_proj,704x352,2,247808,True,Muon,0,0.0003,0.1,0.95,0.9,0.95,1e-20,True,True,hybrid,10,0.18,logical matrix or packed logical matrices,Muon,PASS
+layers.10.attn.kv_proj.weight,layers.10.attn.kv_proj,64x704,2,45056,True,Muon,0,0.0003,0.1,0.95,0.9,0.95,1e-20,True,True,hybrid,10,0.18,logical matrix or packed logical matrices,Muon,PASS
+layers.10.attn.kv_norm.weight,layers.10.attn.kv_norm,64,1,64,True,AdamW,1,0.0003,0.1,0.95,0.9,0.95,1e-20,True,False,hybrid,10,0.18,report semantic exclusion,AdamW,PASS
+layers.10.attn.o_a_proj.weight,layers.10.attn.o_a_proj,64x704,2,45056,True,Muon,0,0.0003,0.1,0.95,0.9,0.95,1e-20,True,True,hybrid,10,0.18,logical matrix or packed logical matrices,Muon,PASS
+layers.10.attn.o_b_proj.weight,layers.10.attn.o_b_proj,704x64,2,45056,True,Muon,0,0.0003,0.1,0.95,0.9,0.95,1e-20,True,True,hybrid,10,0.18,logical matrix or packed logical matrices,Muon,PASS
+layers.10.attn.compressor.position_bias,layers.10.attn.compressor,4x128,2,512,True,Muon,0,0.0003,0.1,0.95,0.9,0.95,1e-20,True,True,hybrid,10,0.18,logical matrix or packed logical matrices,Muon,PASS
+layers.10.attn.compressor.kv_proj.weight,layers.10.attn.compressor.kv_proj,128x704,2,90112,True,Muon,0,0.0003,0.1,0.95,0.9,0.95,1e-20,True,True,hybrid,10,0.18,logical matrix or packed logical matrices,Muon,PASS
+layers.10.attn.compressor.gate_proj.weight,layers.10.attn.compressor.gate_proj,128x704,2,90112,True,Muon,0,0.0003,0.1,0.95,0.9,0.95,1e-20,True,True,hybrid,10,0.18,logical matrix or packed logical matrices,Muon,PASS
+layers.10.attn.compressor.kv_norm.weight,layers.10.attn.compressor.kv_norm,64,1,64,True,AdamW,1,0.0003,0.1,0.95,0.9,0.95,1e-20,True,False,hybrid,10,0.18,report semantic exclusion,AdamW,PASS
+layers.10.attn.compressor.indexer.position_bias,layers.10.attn.compressor.indexer,4x64,2,256,True,Muon,0,0.0003,0.1,0.95,0.9,0.95,1e-20,True,True,hybrid,10,0.18,logical matrix or packed logical matrices,Muon,PASS
+layers.10.attn.compressor.indexer.kv_proj.weight,layers.10.attn.compressor.indexer.kv_proj,64x704,2,45056,True,Muon,0,0.0003,0.1,0.95,0.9,0.95,1e-20,True,True,hybrid,10,0.18,logical matrix or packed logical matrices,Muon,PASS
+layers.10.attn.compressor.indexer.gate_proj.weight,layers.10.attn.compressor.indexer.gate_proj,64x704,2,45056,True,Muon,0,0.0003,0.1,0.95,0.9,0.95,1e-20,True,True,hybrid,10,0.18,logical matrix or packed logical matrices,Muon,PASS
+layers.10.attn.compressor.indexer.kv_norm.weight,layers.10.attn.compressor.indexer.kv_norm,32,1,32,True,AdamW,1,0.0003,0.1,0.95,0.9,0.95,1e-20,True,False,hybrid,10,0.18,report semantic exclusion,AdamW,PASS
+layers.10.attn.compressor.indexer.q_b_proj.weight,layers.10.attn.compressor.indexer.q_b_proj,352x352,2,123904,True,Muon,0,0.0003,0.1,0.95,0.9,0.95,1e-20,True,True,hybrid,10,0.18,logical matrix or packed logical matrices,Muon,PASS
+layers.10.attn.compressor.indexer.scorer.weights_proj.weight,layers.10.attn.compressor.indexer.scorer.weights_proj,11x704,2,7744,True,Muon,0,0.0003,0.1,0.95,0.9,0.95,1e-20,True,True,hybrid,10,0.18,logical matrix or packed logical matrices,Muon,PASS
+layers.10.ffn_norm.weight,layers.10.ffn_norm,704,1,704,True,AdamW,1,0.0003,0.1,0.95,0.9,0.95,1e-20,True,False,hybrid,10,0.18,report semantic exclusion,AdamW,PASS
+layers.10.ffn.gate.weight,layers.10.ffn.gate,16x704,2,11264,True,AdamW,1,0.0003,0.1,0.95,0.9,0.95,1e-20,True,False,hybrid,10,0.18,report semantic exclusion,AdamW,PASS
+layers.10.ffn.experts.gate_up_proj,layers.10.ffn.experts,16x1024x704,3,11534336,True,Muon,0,0.0003,0.1,0.95,0.9,0.95,1e-20,True,True,hybrid,10,0.18,logical matrix or packed logical matrices,Muon,PASS
+layers.10.ffn.experts.down_proj,layers.10.ffn.experts,16x704x512,3,5767168,True,Muon,0,0.0003,0.1,0.95,0.9,0.95,1e-20,True,True,hybrid,10,0.18,logical matrix or packed logical matrices,Muon,PASS
+layers.10.ffn.shared_experts.gate_proj.weight,layers.10.ffn.shared_experts.gate_proj,512x704,2,360448,True,Muon,0,0.0003,0.1,0.95,0.9,0.95,1e-20,True,True,hybrid,10,0.18,logical matrix or packed logical matrices,Muon,PASS
+layers.10.ffn.shared_experts.up_proj.weight,layers.10.ffn.shared_experts.up_proj,512x704,2,360448,True,Muon,0,0.0003,0.1,0.95,0.9,0.95,1e-20,True,True,hybrid,10,0.18,logical matrix or packed logical matrices,Muon,PASS
+layers.10.ffn.shared_experts.down_proj.weight,layers.10.ffn.shared_experts.down_proj,704x512,2,360448,True,Muon,0,0.0003,0.1,0.95,0.9,0.95,1e-20,True,True,hybrid,10,0.18,logical matrix or packed logical matrices,Muon,PASS
+layers.11.attn_norm.weight,layers.11.attn_norm,704,1,704,True,AdamW,1,0.0003,0.1,0.95,0.9,0.95,1e-20,True,False,hybrid,10,0.18,report semantic exclusion,AdamW,PASS
+layers.11.attn.sinks,layers.11.attn,11,1,11,True,AdamW,1,0.0003,0.1,0.95,0.9,0.95,1e-20,True,False,hybrid,10,0.18,report semantic exclusion,AdamW,PASS
+layers.11.attn.q_a_proj.weight,layers.11.attn.q_a_proj,352x704,2,247808,True,Muon,0,0.0003,0.1,0.95,0.9,0.95,1e-20,True,True,hybrid,10,0.18,logical matrix or packed logical matrices,Muon,PASS
+layers.11.attn.q_a_norm.weight,layers.11.attn.q_a_norm,352,1,352,True,AdamW,1,0.0003,0.1,0.95,0.9,0.95,1e-20,True,False,hybrid,10,0.18,report semantic exclusion,AdamW,PASS
+layers.11.attn.q_b_proj.weight,layers.11.attn.q_b_proj,704x352,2,247808,True,Muon,0,0.0003,0.1,0.95,0.9,0.95,1e-20,True,True,hybrid,10,0.18,logical matrix or packed logical matrices,Muon,PASS
+layers.11.attn.kv_proj.weight,layers.11.attn.kv_proj,64x704,2,45056,True,Muon,0,0.0003,0.1,0.95,0.9,0.95,1e-20,True,True,hybrid,10,0.18,logical matrix or packed logical matrices,Muon,PASS
+layers.11.attn.kv_norm.weight,layers.11.attn.kv_norm,64,1,64,True,AdamW,1,0.0003,0.1,0.95,0.9,0.95,1e-20,True,False,hybrid,10,0.18,report semantic exclusion,AdamW,PASS
+layers.11.attn.o_a_proj.weight,layers.11.attn.o_a_proj,64x704,2,45056,True,Muon,0,0.0003,0.1,0.95,0.9,0.95,1e-20,True,True,hybrid,10,0.18,logical matrix or packed logical matrices,Muon,PASS
+layers.11.attn.o_b_proj.weight,layers.11.attn.o_b_proj,704x64,2,45056,True,Muon,0,0.0003,0.1,0.95,0.9,0.95,1e-20,True,True,hybrid,10,0.18,logical matrix or packed logical matrices,Muon,PASS
+layers.11.attn.compressor.position_bias,layers.11.attn.compressor,128x64,2,8192,True,Muon,0,0.0003,0.1,0.95,0.9,0.95,1e-20,True,True,hybrid,10,0.18,logical matrix or packed logical matrices,Muon,PASS
+layers.11.attn.compressor.kv_proj.weight,layers.11.attn.compressor.kv_proj,64x704,2,45056,True,Muon,0,0.0003,0.1,0.95,0.9,0.95,1e-20,True,True,hybrid,10,0.18,logical matrix or packed logical matrices,Muon,PASS
+layers.11.attn.compressor.gate_proj.weight,layers.11.attn.compressor.gate_proj,64x704,2,45056,True,Muon,0,0.0003,0.1,0.95,0.9,0.95,1e-20,True,True,hybrid,10,0.18,logical matrix or packed logical matrices,Muon,PASS
+layers.11.attn.compressor.kv_norm.weight,layers.11.attn.compressor.kv_norm,64,1,64,True,AdamW,1,0.0003,0.1,0.95,0.9,0.95,1e-20,True,False,hybrid,10,0.18,report semantic exclusion,AdamW,PASS
+layers.11.ffn_norm.weight,layers.11.ffn_norm,704,1,704,True,AdamW,1,0.0003,0.1,0.95,0.9,0.95,1e-20,True,False,hybrid,10,0.18,report semantic exclusion,AdamW,PASS
+layers.11.ffn.gate.weight,layers.11.ffn.gate,16x704,2,11264,True,AdamW,1,0.0003,0.1,0.95,0.9,0.95,1e-20,True,False,hybrid,10,0.18,report semantic exclusion,AdamW,PASS
+layers.11.ffn.experts.gate_up_proj,layers.11.ffn.experts,16x1024x704,3,11534336,True,Muon,0,0.0003,0.1,0.95,0.9,0.95,1e-20,True,True,hybrid,10,0.18,logical matrix or packed logical matrices,Muon,PASS
+layers.11.ffn.experts.down_proj,layers.11.ffn.experts,16x704x512,3,5767168,True,Muon,0,0.0003,0.1,0.95,0.9,0.95,1e-20,True,True,hybrid,10,0.18,logical matrix or packed logical matrices,Muon,PASS
+layers.11.ffn.shared_experts.gate_proj.weight,layers.11.ffn.shared_experts.gate_proj,512x704,2,360448,True,Muon,0,0.0003,0.1,0.95,0.9,0.95,1e-20,True,True,hybrid,10,0.18,logical matrix or packed logical matrices,Muon,PASS
+layers.11.ffn.shared_experts.up_proj.weight,layers.11.ffn.shared_experts.up_proj,512x704,2,360448,True,Muon,0,0.0003,0.1,0.95,0.9,0.95,1e-20,True,True,hybrid,10,0.18,logical matrix or packed logical matrices,Muon,PASS
+layers.11.ffn.shared_experts.down_proj.weight,layers.11.ffn.shared_experts.down_proj,704x512,2,360448,True,Muon,0,0.0003,0.1,0.95,0.9,0.95,1e-20,True,True,hybrid,10,0.18,logical matrix or packed logical matrices,Muon,PASS
+layers.12.attn_norm.weight,layers.12.attn_norm,704,1,704,True,AdamW,1,0.0003,0.1,0.95,0.9,0.95,1e-20,True,False,hybrid,10,0.18,report semantic exclusion,AdamW,PASS
+layers.12.attn.sinks,layers.12.attn,11,1,11,True,AdamW,1,0.0003,0.1,0.95,0.9,0.95,1e-20,True,False,hybrid,10,0.18,report semantic exclusion,AdamW,PASS
+layers.12.attn.q_a_proj.weight,layers.12.attn.q_a_proj,352x704,2,247808,True,Muon,0,0.0003,0.1,0.95,0.9,0.95,1e-20,True,True,hybrid,10,0.18,logical matrix or packed logical matrices,Muon,PASS
+layers.12.attn.q_a_norm.weight,layers.12.attn.q_a_norm,352,1,352,True,AdamW,1,0.0003,0.1,0.95,0.9,0.95,1e-20,True,False,hybrid,10,0.18,report semantic exclusion,AdamW,PASS
+layers.12.attn.q_b_proj.weight,layers.12.attn.q_b_proj,704x352,2,247808,True,Muon,0,0.0003,0.1,0.95,0.9,0.95,1e-20,True,True,hybrid,10,0.18,logical matrix or packed logical matrices,Muon,PASS
+layers.12.attn.kv_proj.weight,layers.12.attn.kv_proj,64x704,2,45056,True,Muon,0,0.0003,0.1,0.95,0.9,0.95,1e-20,True,True,hybrid,10,0.18,logical matrix or packed logical matrices,Muon,PASS
+layers.12.attn.kv_norm.weight,layers.12.attn.kv_norm,64,1,64,True,AdamW,1,0.0003,0.1,0.95,0.9,0.95,1e-20,True,False,hybrid,10,0.18,report semantic exclusion,AdamW,PASS
+layers.12.attn.o_a_proj.weight,layers.12.attn.o_a_proj,64x704,2,45056,True,Muon,0,0.0003,0.1,0.95,0.9,0.95,1e-20,True,True,hybrid,10,0.18,logical matrix or packed logical matrices,Muon,PASS
+layers.12.attn.o_b_proj.weight,layers.12.attn.o_b_proj,704x64,2,45056,True,Muon,0,0.0003,0.1,0.95,0.9,0.95,1e-20,True,True,hybrid,10,0.18,logical matrix or packed logical matrices,Muon,PASS
+layers.12.attn.compressor.position_bias,layers.12.attn.compressor,4x128,2,512,True,Muon,0,0.0003,0.1,0.95,0.9,0.95,1e-20,True,True,hybrid,10,0.18,logical matrix or packed logical matrices,Muon,PASS
+layers.12.attn.compressor.kv_proj.weight,layers.12.attn.compressor.kv_proj,128x704,2,90112,True,Muon,0,0.0003,0.1,0.95,0.9,0.95,1e-20,True,True,hybrid,10,0.18,logical matrix or packed logical matrices,Muon,PASS
+layers.12.attn.compressor.gate_proj.weight,layers.12.attn.compressor.gate_proj,128x704,2,90112,True,Muon,0,0.0003,0.1,0.95,0.9,0.95,1e-20,True,True,hybrid,10,0.18,logical matrix or packed logical matrices,Muon,PASS
+layers.12.attn.compressor.kv_norm.weight,layers.12.attn.compressor.kv_norm,64,1,64,True,AdamW,1,0.0003,0.1,0.95,0.9,0.95,1e-20,True,False,hybrid,10,0.18,report semantic exclusion,AdamW,PASS
+layers.12.attn.compressor.indexer.position_bias,layers.12.attn.compressor.indexer,4x64,2,256,True,Muon,0,0.0003,0.1,0.95,0.9,0.95,1e-20,True,True,hybrid,10,0.18,logical matrix or packed logical matrices,Muon,PASS
+layers.12.attn.compressor.indexer.kv_proj.weight,layers.12.attn.compressor.indexer.kv_proj,64x704,2,45056,True,Muon,0,0.0003,0.1,0.95,0.9,0.95,1e-20,True,True,hybrid,10,0.18,logical matrix or packed logical matrices,Muon,PASS
+layers.12.attn.compressor.indexer.gate_proj.weight,layers.12.attn.compressor.indexer.gate_proj,64x704,2,45056,True,Muon,0,0.0003,0.1,0.95,0.9,0.95,1e-20,True,True,hybrid,10,0.18,logical matrix or packed logical matrices,Muon,PASS
+layers.12.attn.compressor.indexer.kv_norm.weight,layers.12.attn.compressor.indexer.kv_norm,32,1,32,True,AdamW,1,0.0003,0.1,0.95,0.9,0.95,1e-20,True,False,hybrid,10,0.18,report semantic exclusion,AdamW,PASS
+layers.12.attn.compressor.indexer.q_b_proj.weight,layers.12.attn.compressor.indexer.q_b_proj,352x352,2,123904,True,Muon,0,0.0003,0.1,0.95,0.9,0.95,1e-20,True,True,hybrid,10,0.18,logical matrix or packed logical matrices,Muon,PASS
+layers.12.attn.compressor.indexer.scorer.weights_proj.weight,layers.12.attn.compressor.indexer.scorer.weights_proj,11x704,2,7744,True,Muon,0,0.0003,0.1,0.95,0.9,0.95,1e-20,True,True,hybrid,10,0.18,logical matrix or packed logical matrices,Muon,PASS
+layers.12.ffn_norm.weight,layers.12.ffn_norm,704,1,704,True,AdamW,1,0.0003,0.1,0.95,0.9,0.95,1e-20,True,False,hybrid,10,0.18,report semantic exclusion,AdamW,PASS
+layers.12.ffn.gate.weight,layers.12.ffn.gate,16x704,2,11264,True,AdamW,1,0.0003,0.1,0.95,0.9,0.95,1e-20,True,False,hybrid,10,0.18,report semantic exclusion,AdamW,PASS
+layers.12.ffn.experts.gate_up_proj,layers.12.ffn.experts,16x1024x704,3,11534336,True,Muon,0,0.0003,0.1,0.95,0.9,0.95,1e-20,True,True,hybrid,10,0.18,logical matrix or packed logical matrices,Muon,PASS
+layers.12.ffn.experts.down_proj,layers.12.ffn.experts,16x704x512,3,5767168,True,Muon,0,0.0003,0.1,0.95,0.9,0.95,1e-20,True,True,hybrid,10,0.18,logical matrix or packed logical matrices,Muon,PASS
+layers.12.ffn.shared_experts.gate_proj.weight,layers.12.ffn.shared_experts.gate_proj,512x704,2,360448,True,Muon,0,0.0003,0.1,0.95,0.9,0.95,1e-20,True,True,hybrid,10,0.18,logical matrix or packed logical matrices,Muon,PASS
+layers.12.ffn.shared_experts.up_proj.weight,layers.12.ffn.shared_experts.up_proj,512x704,2,360448,True,Muon,0,0.0003,0.1,0.95,0.9,0.95,1e-20,True,True,hybrid,10,0.18,logical matrix or packed logical matrices,Muon,PASS
+layers.12.ffn.shared_experts.down_proj.weight,layers.12.ffn.shared_experts.down_proj,704x512,2,360448,True,Muon,0,0.0003,0.1,0.95,0.9,0.95,1e-20,True,True,hybrid,10,0.18,logical matrix or packed logical matrices,Muon,PASS
+layers.13.attn_norm.weight,layers.13.attn_norm,704,1,704,True,AdamW,1,0.0003,0.1,0.95,0.9,0.95,1e-20,True,False,hybrid,10,0.18,report semantic exclusion,AdamW,PASS
+layers.13.attn.sinks,layers.13.attn,11,1,11,True,AdamW,1,0.0003,0.1,0.95,0.9,0.95,1e-20,True,False,hybrid,10,0.18,report semantic exclusion,AdamW,PASS
+layers.13.attn.q_a_proj.weight,layers.13.attn.q_a_proj,352x704,2,247808,True,Muon,0,0.0003,0.1,0.95,0.9,0.95,1e-20,True,True,hybrid,10,0.18,logical matrix or packed logical matrices,Muon,PASS
+layers.13.attn.q_a_norm.weight,layers.13.attn.q_a_norm,352,1,352,True,AdamW,1,0.0003,0.1,0.95,0.9,0.95,1e-20,True,False,hybrid,10,0.18,report semantic exclusion,AdamW,PASS
+layers.13.attn.q_b_proj.weight,layers.13.attn.q_b_proj,704x352,2,247808,True,Muon,0,0.0003,0.1,0.95,0.9,0.95,1e-20,True,True,hybrid,10,0.18,logical matrix or packed logical matrices,Muon,PASS
+layers.13.attn.kv_proj.weight,layers.13.attn.kv_proj,64x704,2,45056,True,Muon,0,0.0003,0.1,0.95,0.9,0.95,1e-20,True,True,hybrid,10,0.18,logical matrix or packed logical matrices,Muon,PASS
+layers.13.attn.kv_norm.weight,layers.13.attn.kv_norm,64,1,64,True,AdamW,1,0.0003,0.1,0.95,0.9,0.95,1e-20,True,False,hybrid,10,0.18,report semantic exclusion,AdamW,PASS
+layers.13.attn.o_a_proj.weight,layers.13.attn.o_a_proj,64x704,2,45056,True,Muon,0,0.0003,0.1,0.95,0.9,0.95,1e-20,True,True,hybrid,10,0.18,logical matrix or packed logical matrices,Muon,PASS
+layers.13.attn.o_b_proj.weight,layers.13.attn.o_b_proj,704x64,2,45056,True,Muon,0,0.0003,0.1,0.95,0.9,0.95,1e-20,True,True,hybrid,10,0.18,logical matrix or packed logical matrices,Muon,PASS
+layers.13.attn.compressor.position_bias,layers.13.attn.compressor,128x64,2,8192,True,Muon,0,0.0003,0.1,0.95,0.9,0.95,1e-20,True,True,hybrid,10,0.18,logical matrix or packed logical matrices,Muon,PASS
+layers.13.attn.compressor.kv_proj.weight,layers.13.attn.compressor.kv_proj,64x704,2,45056,True,Muon,0,0.0003,0.1,0.95,0.9,0.95,1e-20,True,True,hybrid,10,0.18,logical matrix or packed logical matrices,Muon,PASS
+layers.13.attn.compressor.gate_proj.weight,layers.13.attn.compressor.gate_proj,64x704,2,45056,True,Muon,0,0.0003,0.1,0.95,0.9,0.95,1e-20,True,True,hybrid,10,0.18,logical matrix or packed logical matrices,Muon,PASS
+layers.13.attn.compressor.kv_norm.weight,layers.13.attn.compressor.kv_norm,64,1,64,True,AdamW,1,0.0003,0.1,0.95,0.9,0.95,1e-20,True,False,hybrid,10,0.18,report semantic exclusion,AdamW,PASS
+layers.13.ffn_norm.weight,layers.13.ffn_norm,704,1,704,True,AdamW,1,0.0003,0.1,0.95,0.9,0.95,1e-20,True,False,hybrid,10,0.18,report semantic exclusion,AdamW,PASS
+layers.13.ffn.gate.weight,layers.13.ffn.gate,16x704,2,11264,True,AdamW,1,0.0003,0.1,0.95,0.9,0.95,1e-20,True,False,hybrid,10,0.18,report semantic exclusion,AdamW,PASS
+layers.13.ffn.experts.gate_up_proj,layers.13.ffn.experts,16x1024x704,3,11534336,True,Muon,0,0.0003,0.1,0.95,0.9,0.95,1e-20,True,True,hybrid,10,0.18,logical matrix or packed logical matrices,Muon,PASS
+layers.13.ffn.experts.down_proj,layers.13.ffn.experts,16x704x512,3,5767168,True,Muon,0,0.0003,0.1,0.95,0.9,0.95,1e-20,True,True,hybrid,10,0.18,logical matrix or packed logical matrices,Muon,PASS
+layers.13.ffn.shared_experts.gate_proj.weight,layers.13.ffn.shared_experts.gate_proj,512x704,2,360448,True,Muon,0,0.0003,0.1,0.95,0.9,0.95,1e-20,True,True,hybrid,10,0.18,logical matrix or packed logical matrices,Muon,PASS
+layers.13.ffn.shared_experts.up_proj.weight,layers.13.ffn.shared_experts.up_proj,512x704,2,360448,True,Muon,0,0.0003,0.1,0.95,0.9,0.95,1e-20,True,True,hybrid,10,0.18,logical matrix or packed logical matrices,Muon,PASS
+layers.13.ffn.shared_experts.down_proj.weight,layers.13.ffn.shared_experts.down_proj,704x512,2,360448,True,Muon,0,0.0003,0.1,0.95,0.9,0.95,1e-20,True,True,hybrid,10,0.18,logical matrix or packed logical matrices,Muon,PASS
+layers.14.attn_norm.weight,layers.14.attn_norm,704,1,704,True,AdamW,1,0.0003,0.1,0.95,0.9,0.95,1e-20,True,False,hybrid,10,0.18,report semantic exclusion,AdamW,PASS
+layers.14.attn.sinks,layers.14.attn,11,1,11,True,AdamW,1,0.0003,0.1,0.95,0.9,0.95,1e-20,True,False,hybrid,10,0.18,report semantic exclusion,AdamW,PASS
+layers.14.attn.q_a_proj.weight,layers.14.attn.q_a_proj,352x704,2,247808,True,Muon,0,0.0003,0.1,0.95,0.9,0.95,1e-20,True,True,hybrid,10,0.18,logical matrix or packed logical matrices,Muon,PASS
+layers.14.attn.q_a_norm.weight,layers.14.attn.q_a_norm,352,1,352,True,AdamW,1,0.0003,0.1,0.95,0.9,0.95,1e-20,True,False,hybrid,10,0.18,report semantic exclusion,AdamW,PASS
+layers.14.attn.q_b_proj.weight,layers.14.attn.q_b_proj,704x352,2,247808,True,Muon,0,0.0003,0.1,0.95,0.9,0.95,1e-20,True,True,hybrid,10,0.18,logical matrix or packed logical matrices,Muon,PASS
+layers.14.attn.kv_proj.weight,layers.14.attn.kv_proj,64x704,2,45056,True,Muon,0,0.0003,0.1,0.95,0.9,0.95,1e-20,True,True,hybrid,10,0.18,logical matrix or packed logical matrices,Muon,PASS
+layers.14.attn.kv_norm.weight,layers.14.attn.kv_norm,64,1,64,True,AdamW,1,0.0003,0.1,0.95,0.9,0.95,1e-20,True,False,hybrid,10,0.18,report semantic exclusion,AdamW,PASS
+layers.14.attn.o_a_proj.weight,layers.14.attn.o_a_proj,64x704,2,45056,True,Muon,0,0.0003,0.1,0.95,0.9,0.95,1e-20,True,True,hybrid,10,0.18,logical matrix or packed logical matrices,Muon,PASS
+layers.14.attn.o_b_proj.weight,layers.14.attn.o_b_proj,704x64,2,45056,True,Muon,0,0.0003,0.1,0.95,0.9,0.95,1e-20,True,True,hybrid,10,0.18,logical matrix or packed logical matrices,Muon,PASS
+layers.14.attn.compressor.position_bias,layers.14.attn.compressor,4x128,2,512,True,Muon,0,0.0003,0.1,0.95,0.9,0.95,1e-20,True,True,hybrid,10,0.18,logical matrix or packed logical matrices,Muon,PASS
+layers.14.attn.compressor.kv_proj.weight,layers.14.attn.compressor.kv_proj,128x704,2,90112,True,Muon,0,0.0003,0.1,0.95,0.9,0.95,1e-20,True,True,hybrid,10,0.18,logical matrix or packed logical matrices,Muon,PASS
+layers.14.attn.compressor.gate_proj.weight,layers.14.attn.compressor.gate_proj,128x704,2,90112,True,Muon,0,0.0003,0.1,0.95,0.9,0.95,1e-20,True,True,hybrid,10,0.18,logical matrix or packed logical matrices,Muon,PASS
+layers.14.attn.compressor.kv_norm.weight,layers.14.attn.compressor.kv_norm,64,1,64,True,AdamW,1,0.0003,0.1,0.95,0.9,0.95,1e-20,True,False,hybrid,10,0.18,report semantic exclusion,AdamW,PASS
+layers.14.attn.compressor.indexer.position_bias,layers.14.attn.compressor.indexer,4x64,2,256,True,Muon,0,0.0003,0.1,0.95,0.9,0.95,1e-20,True,True,hybrid,10,0.18,logical matrix or packed logical matrices,Muon,PASS
+layers.14.attn.compressor.indexer.kv_proj.weight,layers.14.attn.compressor.indexer.kv_proj,64x704,2,45056,True,Muon,0,0.0003,0.1,0.95,0.9,0.95,1e-20,True,True,hybrid,10,0.18,logical matrix or packed logical matrices,Muon,PASS
+layers.14.attn.compressor.indexer.gate_proj.weight,layers.14.attn.compressor.indexer.gate_proj,64x704,2,45056,True,Muon,0,0.0003,0.1,0.95,0.9,0.95,1e-20,True,True,hybrid,10,0.18,logical matrix or packed logical matrices,Muon,PASS
+layers.14.attn.compressor.indexer.kv_norm.weight,layers.14.attn.compressor.indexer.kv_norm,32,1,32,True,AdamW,1,0.0003,0.1,0.95,0.9,0.95,1e-20,True,False,hybrid,10,0.18,report semantic exclusion,AdamW,PASS
+layers.14.attn.compressor.indexer.q_b_proj.weight,layers.14.attn.compressor.indexer.q_b_proj,352x352,2,123904,True,Muon,0,0.0003,0.1,0.95,0.9,0.95,1e-20,True,True,hybrid,10,0.18,logical matrix or packed logical matrices,Muon,PASS
+layers.14.attn.compressor.indexer.scorer.weights_proj.weight,layers.14.attn.compressor.indexer.scorer.weights_proj,11x704,2,7744,True,Muon,0,0.0003,0.1,0.95,0.9,0.95,1e-20,True,True,hybrid,10,0.18,logical matrix or packed logical matrices,Muon,PASS
+layers.14.ffn_norm.weight,layers.14.ffn_norm,704,1,704,True,AdamW,1,0.0003,0.1,0.95,0.9,0.95,1e-20,True,False,hybrid,10,0.18,report semantic exclusion,AdamW,PASS
+layers.14.ffn.gate.weight,layers.14.ffn.gate,16x704,2,11264,True,AdamW,1,0.0003,0.1,0.95,0.9,0.95,1e-20,True,False,hybrid,10,0.18,report semantic exclusion,AdamW,PASS
+layers.14.ffn.experts.gate_up_proj,layers.14.ffn.experts,16x1024x704,3,11534336,True,Muon,0,0.0003,0.1,0.95,0.9,0.95,1e-20,True,True,hybrid,10,0.18,logical matrix or packed logical matrices,Muon,PASS
+layers.14.ffn.experts.down_proj,layers.14.ffn.experts,16x704x512,3,5767168,True,Muon,0,0.0003,0.1,0.95,0.9,0.95,1e-20,True,True,hybrid,10,0.18,logical matrix or packed logical matrices,Muon,PASS
+layers.14.ffn.shared_experts.gate_proj.weight,layers.14.ffn.shared_experts.gate_proj,512x704,2,360448,True,Muon,0,0.0003,0.1,0.95,0.9,0.95,1e-20,True,True,hybrid,10,0.18,logical matrix or packed logical matrices,Muon,PASS
+layers.14.ffn.shared_experts.up_proj.weight,layers.14.ffn.shared_experts.up_proj,512x704,2,360448,True,Muon,0,0.0003,0.1,0.95,0.9,0.95,1e-20,True,True,hybrid,10,0.18,logical matrix or packed logical matrices,Muon,PASS
+layers.14.ffn.shared_experts.down_proj.weight,layers.14.ffn.shared_experts.down_proj,704x512,2,360448,True,Muon,0,0.0003,0.1,0.95,0.9,0.95,1e-20,True,True,hybrid,10,0.18,logical matrix or packed logical matrices,Muon,PASS
+layers.15.attn_norm.weight,layers.15.attn_norm,704,1,704,True,AdamW,1,0.0003,0.1,0.95,0.9,0.95,1e-20,True,False,hybrid,10,0.18,report semantic exclusion,AdamW,PASS
+layers.15.attn.sinks,layers.15.attn,11,1,11,True,AdamW,1,0.0003,0.1,0.95,0.9,0.95,1e-20,True,False,hybrid,10,0.18,report semantic exclusion,AdamW,PASS
+layers.15.attn.q_a_proj.weight,layers.15.attn.q_a_proj,352x704,2,247808,True,Muon,0,0.0003,0.1,0.95,0.9,0.95,1e-20,True,True,hybrid,10,0.18,logical matrix or packed logical matrices,Muon,PASS
+layers.15.attn.q_a_norm.weight,layers.15.attn.q_a_norm,352,1,352,True,AdamW,1,0.0003,0.1,0.95,0.9,0.95,1e-20,True,False,hybrid,10,0.18,report semantic exclusion,AdamW,PASS
+layers.15.attn.q_b_proj.weight,layers.15.attn.q_b_proj,704x352,2,247808,True,Muon,0,0.0003,0.1,0.95,0.9,0.95,1e-20,True,True,hybrid,10,0.18,logical matrix or packed logical matrices,Muon,PASS
+layers.15.attn.kv_proj.weight,layers.15.attn.kv_proj,64x704,2,45056,True,Muon,0,0.0003,0.1,0.95,0.9,0.95,1e-20,True,True,hybrid,10,0.18,logical matrix or packed logical matrices,Muon,PASS
+layers.15.attn.kv_norm.weight,layers.15.attn.kv_norm,64,1,64,True,AdamW,1,0.0003,0.1,0.95,0.9,0.95,1e-20,True,False,hybrid,10,0.18,report semantic exclusion,AdamW,PASS
+layers.15.attn.o_a_proj.weight,layers.15.attn.o_a_proj,64x704,2,45056,True,Muon,0,0.0003,0.1,0.95,0.9,0.95,1e-20,True,True,hybrid,10,0.18,logical matrix or packed logical matrices,Muon,PASS
+layers.15.attn.o_b_proj.weight,layers.15.attn.o_b_proj,704x64,2,45056,True,Muon,0,0.0003,0.1,0.95,0.9,0.95,1e-20,True,True,hybrid,10,0.18,logical matrix or packed logical matrices,Muon,PASS
+layers.15.attn.compressor.position_bias,layers.15.attn.compressor,128x64,2,8192,True,Muon,0,0.0003,0.1,0.95,0.9,0.95,1e-20,True,True,hybrid,10,0.18,logical matrix or packed logical matrices,Muon,PASS
+layers.15.attn.compressor.kv_proj.weight,layers.15.attn.compressor.kv_proj,64x704,2,45056,True,Muon,0,0.0003,0.1,0.95,0.9,0.95,1e-20,True,True,hybrid,10,0.18,logical matrix or packed logical matrices,Muon,PASS
+layers.15.attn.compressor.gate_proj.weight,layers.15.attn.compressor.gate_proj,64x704,2,45056,True,Muon,0,0.0003,0.1,0.95,0.9,0.95,1e-20,True,True,hybrid,10,0.18,logical matrix or packed logical matrices,Muon,PASS
+layers.15.attn.compressor.kv_norm.weight,layers.15.attn.compressor.kv_norm,64,1,64,True,AdamW,1,0.0003,0.1,0.95,0.9,0.95,1e-20,True,False,hybrid,10,0.18,report semantic exclusion,AdamW,PASS
+layers.15.ffn_norm.weight,layers.15.ffn_norm,704,1,704,True,AdamW,1,0.0003,0.1,0.95,0.9,0.95,1e-20,True,False,hybrid,10,0.18,report semantic exclusion,AdamW,PASS
+layers.15.ffn.gate.weight,layers.15.ffn.gate,16x704,2,11264,True,AdamW,1,0.0003,0.1,0.95,0.9,0.95,1e-20,True,False,hybrid,10,0.18,report semantic exclusion,AdamW,PASS
+layers.15.ffn.experts.gate_up_proj,layers.15.ffn.experts,16x1024x704,3,11534336,True,Muon,0,0.0003,0.1,0.95,0.9,0.95,1e-20,True,True,hybrid,10,0.18,logical matrix or packed logical matrices,Muon,PASS
+layers.15.ffn.experts.down_proj,layers.15.ffn.experts,16x704x512,3,5767168,True,Muon,0,0.0003,0.1,0.95,0.9,0.95,1e-20,True,True,hybrid,10,0.18,logical matrix or packed logical matrices,Muon,PASS
+layers.15.ffn.shared_experts.gate_proj.weight,layers.15.ffn.shared_experts.gate_proj,512x704,2,360448,True,Muon,0,0.0003,0.1,0.95,0.9,0.95,1e-20,True,True,hybrid,10,0.18,logical matrix or packed logical matrices,Muon,PASS
+layers.15.ffn.shared_experts.up_proj.weight,layers.15.ffn.shared_experts.up_proj,512x704,2,360448,True,Muon,0,0.0003,0.1,0.95,0.9,0.95,1e-20,True,True,hybrid,10,0.18,logical matrix or packed logical matrices,Muon,PASS
+layers.15.ffn.shared_experts.down_proj.weight,layers.15.ffn.shared_experts.down_proj,704x512,2,360448,True,Muon,0,0.0003,0.1,0.95,0.9,0.95,1e-20,True,True,hybrid,10,0.18,logical matrix or packed logical matrices,Muon,PASS
+final_norm.weight,final_norm,704,1,704,True,AdamW,1,0.0003,0.1,0.95,0.9,0.95,1e-20,True,False,hybrid,10,0.18,report semantic exclusion,AdamW,PASS
+lm_head.weight,lm_head,49152x704,2,34603008,True,AdamW,1,0.0003,0.1,0.95,0.9,0.95,1e-20,True,False,hybrid,10,0.18,report semantic exclusion,AdamW,PASS
+mtp_modules.0.enorm.weight,mtp_modules.0.enorm,704,1,704,True,AdamW,1,0.0003,0.1,0.95,0.9,0.95,1e-20,True,False,hybrid,10,0.18,report semantic exclusion,AdamW,PASS
+mtp_modules.0.hnorm.weight,mtp_modules.0.hnorm,704,1,704,True,AdamW,1,0.0003,0.1,0.95,0.9,0.95,1e-20,True,False,hybrid,10,0.18,report semantic exclusion,AdamW,PASS
+mtp_modules.0.eh_proj.weight,mtp_modules.0.eh_proj,704x1408,2,991232,True,Muon,0,0.0003,0.1,0.95,0.9,0.95,1e-20,True,True,hybrid,10,0.18,logical matrix or packed logical matrices,Muon,PASS
+mtp_modules.0.block.attn_norm.weight,mtp_modules.0.block.attn_norm,704,1,704,True,AdamW,1,0.0003,0.1,0.95,0.9,0.95,1e-20,True,False,hybrid,10,0.18,report semantic exclusion,AdamW,PASS
+mtp_modules.0.block.attn.sinks,mtp_modules.0.block.attn,11,1,11,True,AdamW,1,0.0003,0.1,0.95,0.9,0.95,1e-20,True,False,hybrid,10,0.18,report semantic exclusion,AdamW,PASS
+mtp_modules.0.block.attn.q_a_proj.weight,mtp_modules.0.block.attn.q_a_proj,352x704,2,247808,True,Muon,0,0.0003,0.1,0.95,0.9,0.95,1e-20,True,True,hybrid,10,0.18,logical matrix or packed logical matrices,Muon,PASS
+mtp_modules.0.block.attn.q_a_norm.weight,mtp_modules.0.block.attn.q_a_norm,352,1,352,True,AdamW,1,0.0003,0.1,0.95,0.9,0.95,1e-20,True,False,hybrid,10,0.18,report semantic exclusion,AdamW,PASS
+mtp_modules.0.block.attn.q_b_proj.weight,mtp_modules.0.block.attn.q_b_proj,704x352,2,247808,True,Muon,0,0.0003,0.1,0.95,0.9,0.95,1e-20,True,True,hybrid,10,0.18,logical matrix or packed logical matrices,Muon,PASS
+mtp_modules.0.block.attn.kv_proj.weight,mtp_modules.0.block.attn.kv_proj,64x704,2,45056,True,Muon,0,0.0003,0.1,0.95,0.9,0.95,1e-20,True,True,hybrid,10,0.18,logical matrix or packed logical matrices,Muon,PASS
+mtp_modules.0.block.attn.kv_norm.weight,mtp_modules.0.block.attn.kv_norm,64,1,64,True,AdamW,1,0.0003,0.1,0.95,0.9,0.95,1e-20,True,False,hybrid,10,0.18,report semantic exclusion,AdamW,PASS
+mtp_modules.0.block.attn.o_a_proj.weight,mtp_modules.0.block.attn.o_a_proj,64x704,2,45056,True,Muon,0,0.0003,0.1,0.95,0.9,0.95,1e-20,True,True,hybrid,10,0.18,logical matrix or packed logical matrices,Muon,PASS
+mtp_modules.0.block.attn.o_b_proj.weight,mtp_modules.0.block.attn.o_b_proj,704x64,2,45056,True,Muon,0,0.0003,0.1,0.95,0.9,0.95,1e-20,True,True,hybrid,10,0.18,logical matrix or packed logical matrices,Muon,PASS
+mtp_modules.0.block.ffn_norm.weight,mtp_modules.0.block.ffn_norm,704,1,704,True,AdamW,1,0.0003,0.1,0.95,0.9,0.95,1e-20,True,False,hybrid,10,0.18,report semantic exclusion,AdamW,PASS
+mtp_modules.0.block.ffn.gate.weight,mtp_modules.0.block.ffn.gate,16x704,2,11264,True,AdamW,1,0.0003,0.1,0.95,0.9,0.95,1e-20,True,False,hybrid,10,0.18,report semantic exclusion,AdamW,PASS
+mtp_modules.0.block.ffn.experts.gate_up_proj,mtp_modules.0.block.ffn.experts,16x1024x704,3,11534336,True,Muon,0,0.0003,0.1,0.95,0.9,0.95,1e-20,True,True,hybrid,10,0.18,logical matrix or packed logical matrices,Muon,PASS
+mtp_modules.0.block.ffn.experts.down_proj,mtp_modules.0.block.ffn.experts,16x704x512,3,5767168,True,Muon,0,0.0003,0.1,0.95,0.9,0.95,1e-20,True,True,hybrid,10,0.18,logical matrix or packed logical matrices,Muon,PASS
+mtp_modules.0.block.ffn.shared_experts.gate_proj.weight,mtp_modules.0.block.ffn.shared_experts.gate_proj,512x704,2,360448,True,Muon,0,0.0003,0.1,0.95,0.9,0.95,1e-20,True,True,hybrid,10,0.18,logical matrix or packed logical matrices,Muon,PASS
+mtp_modules.0.block.ffn.shared_experts.up_proj.weight,mtp_modules.0.block.ffn.shared_experts.up_proj,512x704,2,360448,True,Muon,0,0.0003,0.1,0.95,0.9,0.95,1e-20,True,True,hybrid,10,0.18,logical matrix or packed logical matrices,Muon,PASS
+mtp_modules.0.block.ffn.shared_experts.down_proj.weight,mtp_modules.0.block.ffn.shared_experts.down_proj,704x512,2,360448,True,Muon,0,0.0003,0.1,0.95,0.9,0.95,1e-20,True,True,hybrid,10,0.18,logical matrix or packed logical matrices,Muon,PASS

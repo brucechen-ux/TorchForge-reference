@@ -1,0 +1,134 @@
+model:
+  name: rerun_muon_standard_ns
+  vocab_size: 49152
+  seq_len: 4096
+  num_layers: 16
+  hidden_size: 704
+  num_attention_heads: 11
+  dense_intermediate_size: 1888
+  first_dense_layers: 0
+  rms_norm_eps: 1.0e-06
+  tie_word_embeddings: false
+v4_attention:
+  enabled: true
+  _attn_implementation: sdpa
+  collect_timing: false
+  compile_attention: false
+  compile_mode: reduce-overhead
+  q_lora_rank: 352
+  head_dim: 64
+  qk_rope_head_dim: 32
+  partial_rotary_factor: 0.5
+  rope_theta: 10000
+  compress_rope_theta: 160000
+  sliding_window: 128
+  o_groups: 1
+  o_lora_rank: 64
+  index_n_heads: 11
+  index_head_dim: 32
+  index_topk: 512
+  compress_rates:
+    compressed_sparse_attention: 4
+    heavily_compressed_attention: 128
+moe:
+  enabled: true
+  num_routed_experts: 16
+  num_shared_experts: 1
+  num_experts_per_token: 1
+  num_hash_layers: 3
+  num_expert_groups: 4
+  num_limited_groups: 2
+  route_scale: 1.5
+  score_function: sqrtsoftplus
+  swiglu_limit: 10.0
+  aux_loss_weight: 0.0
+  expert_intermediate_size: 512
+  normalize_topk_prob: true
+  use_correction_bias: true
+  implementation: torch
+  moe_ep_size: 1
+  moe_capacity_factor: 1.25
+  moe_eval_capacity_factor: 2.0
+  moe_min_capacity: 4
+  moe_drop_tokens: false
+  moe_use_tutel: false
+  use_packed_experts: true
+mtp:
+  enabled: true
+  mtp_depth: 1
+  mtp_loss_weight: 0.1
+  mtp_use_moe: true
+train:
+  max_steps: 19073
+  seq_len: 4096
+  micro_batch_size: 4
+  gradient_accumulation_steps: 2
+  learning_rate: 0.0003
+  min_lr: 1.5e-05
+  weight_decay: 0.1
+  warmup_steps: 1000
+  log_steps: 10
+  perf_log_interval: 10
+  save_steps: 1000
+  valid_steps: 500
+  valid_max_batches: 128
+  stop_valid_lm_loss_below: 0.0
+  bf16: true
+  ddp_find_unused_parameters: true
+  debug_unused_parameters: false
+  unused_params_log_interval: 10
+  use_wandb: false
+  output_dir: checkpoints/rerun_muon_standard_ns
+  tensorboard_dir: runs/rerun_muon_standard_ns
+  target_tokens: 5000000000
+  loss_thresholds:
+  - 4.0
+  - 3.5
+  - 3.2
+  - 3.0
+  optimizer:
+    name: muon
+    momentum: 0.95
+    nesterov: true
+    betas:
+    - 0.9
+    - 0.95
+    eps: 1.0e-20
+    newton_schulz: standard
+    newton_schulz_iterations: 10
+    update_rms_target: 0.18
+    hybrid:
+      first_stage_steps: 8
+      second_stage_steps: 2
+      first_stage_coefficients:
+      - 3.4445
+      - -4.775
+      - 2.0315
+      second_stage_coefficients:
+      - 2.0
+      - -1.5
+      - 0.5
+    standard:
+      steps: 10
+      coefficients:
+      - 2.0
+      - -1.5
+      - 0.5
+    metrics_interval: 10
+    diagnostics_interval: 500
+    diagnostics_max_matrices: 4
+    diagnostics_max_singular_values: 128
+    exclude_from_muon: []
+data:
+  type: memmap
+  data_dir: data/openbmb_UltraFineWeb_5b_random_tokens
+  train_file: train.bin
+  valid_file: valid.bin
+  manifest_file: manifest.json
+  dtype: uint32
+  vocab_size: 49152
+  num_workers: 2
+  pin_memory: true
+  persistent_workers: true
+  prefetch_factor: 2
+seed: 2026

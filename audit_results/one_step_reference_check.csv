@@ -1,0 +1,5 @@
+check,shape,dtype,device,observed_rms,expected_rms,max_abs_error,relative_error,status
+momentum,"[8, 5]",torch.float32,cpu,1.699202299118042,1.699202299118042,0.0,0.0,PASS
+nesterov_input_formula,"[8, 5]",torch.float32,cpu,2.646446466445923,2.646446466445923,0.0,0.0,PASS
+final_weight,"[8, 5]",torch.float32,cpu,0.9843881726264954,0.9843881726264954,0.0,0.0,PASS
+decoupled_weight_decay_delta,"[8, 5]",torch.float32,cpu,6.550061516463757e-05,6.550061516463757e-05,0.0,0.0,PASS
